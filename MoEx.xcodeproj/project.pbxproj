@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		188332552669D3CD0092A504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188332542669D3CD0092A504 /* AppDelegate.swift */; };
 		188332572669D3CD0092A504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188332562669D3CD0092A504 /* SceneDelegate.swift */; };
-		188332592669D3CD0092A504 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188332582669D3CD0092A504 /* HomeController.swift */; };
-		1883325C2669D3CD0092A504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1883325A2669D3CD0092A504 /* Main.storyboard */; };
 		1883325E2669D3CD0092A504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1883325D2669D3CD0092A504 /* Assets.xcassets */; };
 		188332612669D3CD0092A504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1883325F2669D3CD0092A504 /* LaunchScreen.storyboard */; };
+		61725F63266E35120085C241 /* ModuleExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61725F61266E35120085C241 /* ModuleExerciseViewController.swift */; };
+		61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F62266E35120085C241 /* ModuleExerciseViewController.xib */; };
+		61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61725F65266E36630085C241 /* ListExerciseViewController.swift */; };
+		61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F66266E36630085C241 /* ListExerciseViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		188332512669D3CD0092A504 /* Project mc2 group 14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project mc2 group 14.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		188332512669D3CD0092A504 /* MoEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188332542669D3CD0092A504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188332562669D3CD0092A504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		188332582669D3CD0092A504 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		1883325B2669D3CD0092A504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1883325D2669D3CD0092A504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		188332602669D3CD0092A504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		188332622669D3CD0092A504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61725F61266E35120085C241 /* ModuleExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleExerciseViewController.swift; sourceTree = "<group>"; };
+		61725F62266E35120085C241 /* ModuleExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModuleExerciseViewController.xib; sourceTree = "<group>"; };
+		61725F65266E36630085C241 /* ListExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExerciseViewController.swift; sourceTree = "<group>"; };
+		61725F66266E36630085C241 /* ListExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListExerciseViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +44,7 @@
 		188332482669D3CC0092A504 = {
 			isa = PBXGroup;
 			children = (
-				188332532669D3CD0092A504 /* Project mc2 group 14 */,
+				188332532669D3CD0092A504 /* MoEx */,
 				188332522669D3CD0092A504 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,55 +52,73 @@
 		188332522669D3CD0092A504 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				188332512669D3CD0092A504 /* Project mc2 group 14.app */,
+				188332512669D3CD0092A504 /* MoEx.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		188332532669D3CD0092A504 /* Project mc2 group 14 */ = {
+		188332532669D3CD0092A504 /* MoEx */ = {
 			isa = PBXGroup;
 			children = (
-				1883326A2669D5310092A504 /* Controller */,
-				188332692669D5290092A504 /* View */,
-				188332682669D5220092A504 /* Model */,
-				188332542669D3CD0092A504 /* AppDelegate.swift */,
-				188332562669D3CD0092A504 /* SceneDelegate.swift */,
-				1883325D2669D3CD0092A504 /* Assets.xcassets */,
-				1883325F2669D3CD0092A504 /* LaunchScreen.storyboard */,
+				61725F58266E32A10085C241 /* App */,
+				61725F59266E32A90085C241 /* Module */,
+				61725F5A266E32D90085C241 /* Resources */,
 				188332622669D3CD0092A504 /* Info.plist */,
 			);
-			path = "Project mc2 group 14";
+			path = MoEx;
 			sourceTree = "<group>";
 		};
-		188332682669D5220092A504 /* Model */ = {
+		61725F58266E32A10085C241 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				188332542669D3CD0092A504 /* AppDelegate.swift */,
+				188332562669D3CD0092A504 /* SceneDelegate.swift */,
 			);
-			path = Model;
+			path = App;
 			sourceTree = "<group>";
 		};
-		188332692669D5290092A504 /* View */ = {
+		61725F59266E32A90085C241 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				1883325A2669D3CD0092A504 /* Main.storyboard */,
+				61725F5B266E340E0085C241 /* Module Exercise */,
+				61725F5C266E341A0085C241 /* List Exercise */,
 			);
-			path = View;
+			path = Module;
 			sourceTree = "<group>";
 		};
-		1883326A2669D5310092A504 /* Controller */ = {
+		61725F5A266E32D90085C241 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				188332582669D3CD0092A504 /* HomeController.swift */,
+				1883325D2669D3CD0092A504 /* Assets.xcassets */,
+				1883325F2669D3CD0092A504 /* LaunchScreen.storyboard */,
 			);
-			path = Controller;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		61725F5B266E340E0085C241 /* Module Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				61725F61266E35120085C241 /* ModuleExerciseViewController.swift */,
+				61725F62266E35120085C241 /* ModuleExerciseViewController.xib */,
+			);
+			path = "Module Exercise";
+			sourceTree = "<group>";
+		};
+		61725F5C266E341A0085C241 /* List Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				61725F65266E36630085C241 /* ListExerciseViewController.swift */,
+				61725F66266E36630085C241 /* ListExerciseViewController.xib */,
+			);
+			path = "List Exercise";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		188332502669D3CD0092A504 /* Project mc2 group 14 */ = {
+		188332502669D3CD0092A504 /* MoEx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 188332652669D3CD0092A504 /* Build configuration list for PBXNativeTarget "Project mc2 group 14" */;
+			buildConfigurationList = 188332652669D3CD0092A504 /* Build configuration list for PBXNativeTarget "MoEx" */;
 			buildPhases = (
 				1883324D2669D3CD0092A504 /* Sources */,
 				1883324E2669D3CD0092A504 /* Frameworks */,
@@ -106,9 +128,9 @@
 			);
 			dependencies = (
 			);
-			name = "Project mc2 group 14";
+			name = MoEx;
 			productName = "Project mc2 group 14";
-			productReference = 188332512669D3CD0092A504 /* Project mc2 group 14.app */;
+			productReference = 188332512669D3CD0092A504 /* MoEx.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -125,7 +147,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1883324C2669D3CC0092A504 /* Build configuration list for PBXProject "Project mc2 group 14" */;
+			buildConfigurationList = 1883324C2669D3CC0092A504 /* Build configuration list for PBXProject "MoEx" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				188332502669D3CD0092A504 /* Project mc2 group 14 */,
+				188332502669D3CD0092A504 /* MoEx */,
 			);
 		};
 /* End PBXProject section */
@@ -148,9 +170,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */,
+				61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */,
 				188332612669D3CD0092A504 /* LaunchScreen.storyboard in Resources */,
 				1883325E2669D3CD0092A504 /* Assets.xcassets in Resources */,
-				1883325C2669D3CD0092A504 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,23 +184,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				188332592669D3CD0092A504 /* HomeController.swift in Sources */,
+				61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */,
 				188332552669D3CD0092A504 /* AppDelegate.swift in Sources */,
 				188332572669D3CD0092A504 /* SceneDelegate.swift in Sources */,
+				61725F63266E35120085C241 /* ModuleExerciseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1883325A2669D3CD0092A504 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1883325B2669D3CD0092A504 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1883325F2669D3CD0092A504 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -312,7 +328,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PNJ3DJJR6;
-				INFOPLIST_FILE = "Project mc2 group 14/Info.plist";
+				INFOPLIST_FILE = MoEx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,7 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PNJ3DJJR6;
-				INFOPLIST_FILE = "Project mc2 group 14/Info.plist";
+				INFOPLIST_FILE = MoEx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +362,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1883324C2669D3CC0092A504 /* Build configuration list for PBXProject "Project mc2 group 14" */ = {
+		1883324C2669D3CC0092A504 /* Build configuration list for PBXProject "MoEx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				188332632669D3CD0092A504 /* Debug */,
@@ -355,7 +371,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		188332652669D3CD0092A504 /* Build configuration list for PBXNativeTarget "Project mc2 group 14" */ = {
+		188332652669D3CD0092A504 /* Build configuration list for PBXNativeTarget "MoEx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				188332662669D3CD0092A504 /* Debug */,
