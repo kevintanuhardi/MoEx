@@ -8,17 +8,24 @@
 import UIKit
 import WebKit
 class DetailExercise: UIViewController, WKNavigationDelegate {
-    var webView: WKWebView!
+    @IBOutlet weak var thumb: WKWebView!
+    @IBOutlet weak var btnOpenInstruction: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView = WKWebView()
-           webView.navigationDelegate = self
-           view = webView
+        btnOpenInstruction.setTitle("See Instructions", for: .normal)
+        btnOpenInstruction.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        btnOpenInstruction.layer.cornerRadius = 10
+        btnOpenInstruction.translatesAutoresizingMaskIntoConstraints = false
+        btnOpenInstruction.widthAnchor.constraint(equalToConstant: 380).isActive = true
+        btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
         
         let url = URL(string: "https://www.youtube.com/embed/9bZkp7q19f0")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
+        thumb.load(URLRequest(url: url))
+        thumb.allowsBackForwardNavigationGestures = true
         // Do any additional setup after loading the view.
     }
 
