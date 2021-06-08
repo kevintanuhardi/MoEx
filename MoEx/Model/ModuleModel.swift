@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Module {
+struct ModuleModel {
     let title: String
     let thumb: UIImage
     let module_desc: String
