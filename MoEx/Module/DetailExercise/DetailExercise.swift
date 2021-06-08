@@ -13,7 +13,11 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
+        // Do any additional setup after loading the view.
+    }
+    
+    func setupView() {
         btnOpenInstruction.setTitle("See Instructions", for: .normal)
         btnOpenInstruction.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         btnOpenInstruction.layer.cornerRadius = 10
@@ -26,7 +30,6 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         let url = URL(string: "https://www.youtube.com/embed/9bZkp7q19f0")!
         thumb.load(URLRequest(url: url))
         thumb.allowsBackForwardNavigationGestures = true
-        // Do any additional setup after loading the view.
     }
 
 
