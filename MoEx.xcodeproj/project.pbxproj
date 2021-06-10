@@ -15,6 +15,8 @@
 		61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F62266E35120085C241 /* ModuleExerciseViewController.xib */; };
 		61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61725F65266E36630085C241 /* ListExerciseViewController.swift */; };
 		61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F66266E36630085C241 /* ListExerciseViewController.xib */; };
+		8546721C2671E8B70066F121 /* CustomAlertInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546721A2671E8B70066F121 /* CustomAlertInfoViewController.swift */; };
+		8546721D2671E8B70066F121 /* CustomAlertInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */; };
 		854A7DCD266F88C500BC38DE /* DetailExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A7DCB266F88C500BC38DE /* DetailExercise.swift */; };
 		854A7DCE266F88C500BC38DE /* DetailExercise.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A7DCC266F88C500BC38DE /* DetailExercise.xib */; };
 /* End PBXBuildFile section */
@@ -30,6 +32,8 @@
 		61725F62266E35120085C241 /* ModuleExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModuleExerciseViewController.xib; sourceTree = "<group>"; };
 		61725F65266E36630085C241 /* ListExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExerciseViewController.swift; sourceTree = "<group>"; };
 		61725F66266E36630085C241 /* ListExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListExerciseViewController.xib; sourceTree = "<group>"; };
+		8546721A2671E8B70066F121 /* CustomAlertInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertInfoViewController.swift; path = DetailExercise/CustomAlertInfoViewController.swift; sourceTree = "<group>"; };
+		8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomAlertInfoViewController.xib; path = DetailExercise/CustomAlertInfoViewController.xib; sourceTree = "<group>"; };
 		854A7DCB266F88C500BC38DE /* DetailExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailExercise.swift; path = DetailExercise/DetailExercise.swift; sourceTree = "<group>"; };
 		854A7DCC266F88C500BC38DE /* DetailExercise.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailExercise.xib; path = DetailExercise/DetailExercise.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,8 @@
 				61725F5C266E341A0085C241 /* List Exercise */,
 				854A7DCB266F88C500BC38DE /* DetailExercise.swift */,
 				854A7DCC266F88C500BC38DE /* DetailExercise.xib */,
+				8546721A2671E8B70066F121 /* CustomAlertInfoViewController.swift */,
+				8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 				854A7DCE266F88C500BC38DE /* DetailExercise.xib in Resources */,
 				61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */,
 				188332612669D3CD0092A504 /* LaunchScreen.storyboard in Resources */,
+				8546721D2671E8B70066F121 /* CustomAlertInfoViewController.xib in Resources */,
 				1883325E2669D3CD0092A504 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +200,7 @@
 			files = (
 				854A7DCD266F88C500BC38DE /* DetailExercise.swift in Sources */,
 				61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */,
+				8546721C2671E8B70066F121 /* CustomAlertInfoViewController.swift in Sources */,
 				188332552669D3CD0092A504 /* AppDelegate.swift in Sources */,
 				188332572669D3CD0092A504 /* SceneDelegate.swift in Sources */,
 				61725F63266E35120085C241 /* ModuleExerciseViewController.swift in Sources */,

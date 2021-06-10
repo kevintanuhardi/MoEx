@@ -7,24 +7,49 @@
 
 import UIKit
 import WebKit
+
 class DetailExercise: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var thumb: WKWebView!
     @IBOutlet weak var btnOpenInstruction: UIButton!
     
+    private weak var blurView: UIView?
+    
     @IBAction func onClick(_ sender: Any) {
-        let alert = UIAlertController(title: "Attend?", message: "If click yes, you will be recorded as present", preferredStyle: UIAlertController.Style.alert)
-       
-        alert.addAction(UIAlertAction(title: "Back", style: UIAlertAction.Style.destructive, handler: { (_) in
-            print("back")
-        }))
-        self.present(alert, animated: true, completion: nil)
+        let myAlert = CustomAlertInfoViewController()
+           myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+           myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        //always fill the view
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.tag = 100
+        view.addSubview(blurEffectView)
+        blurView = blurEffectView
+        self.navigationController?.present(myAlert, animated: true, completion: nil)
     }
+    
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         // Do any additional setup after loading the view.
+    }
+    
+    func clearBlur() {
+        print("clear blur here")
+        blurView?.removeFromSuperview()
+        self.view.viewWithTag(100)?.removeFromSuperview()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("view will appear")
+        clearBlur()
     }
     
     func setupView() {
@@ -36,6 +61,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
         btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+        
         let url = URL(string: "https://www.youtube.com/embed/9bZkp7q19f0")!
         thumb.load(URLRequest(url: url))
         thumb.allowsBackForwardNavigationGestures = true
