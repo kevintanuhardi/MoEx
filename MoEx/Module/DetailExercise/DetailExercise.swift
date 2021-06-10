@@ -11,6 +11,16 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var thumb: WKWebView!
     @IBOutlet weak var btnOpenInstruction: UIButton!
     
+    @IBAction func onClick(_ sender: Any) {
+        let alert = UIAlertController(title: "Attend?", message: "If click yes, you will be recorded as present", preferredStyle: UIAlertController.Style.alert)
+       
+        alert.addAction(UIAlertAction(title: "Back", style: UIAlertAction.Style.destructive, handler: { (_) in
+            print("back")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
