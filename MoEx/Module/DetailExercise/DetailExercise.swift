@@ -36,7 +36,6 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
         btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
-        
         let url = URL(string: "https://www.youtube.com/embed/9bZkp7q19f0")!
         thumb.load(URLRequest(url: url))
         thumb.allowsBackForwardNavigationGestures = true
