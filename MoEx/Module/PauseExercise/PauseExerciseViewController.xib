@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PauseExerciseViewController" customModule="MoEx" customModuleProvider="target">
+            <connections>
+                <outlet property="quitButton" destination="DPI-jp-gQ9" id="ovF-8k-eu7"/>
+                <outlet property="resumeButton" destination="Bz3-4S-wUD" id="DkY-Do-f04"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7El-AZ-JnV">
+                    <rect key="frame" x="43" y="390.5" width="324" height="115"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSy-rQ-L4m">
+                            <rect key="frame" x="54.5" y="0.0" width="215" height="33"/>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-jp-gQ9">
+                            <rect key="frame" x="0.0" y="67" width="140" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="JjD-HT-I9D"/>
+                                <constraint firstAttribute="width" constant="140" id="VHZ-S7-Ti4"/>
+                            </constraints>
+                            <state key="normal" title="Quit">
+                                <color key="titleColor" red="0.20392156859999999" green="0.42352941179999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bz3-4S-wUD">
+                            <rect key="frame" x="184" y="67" width="140" height="48"/>
+                            <color key="backgroundColor" red="0.20392156859999999" green="0.42352941179999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Cjd-1B-2Hj"/>
+                                <constraint firstAttribute="width" constant="140" id="ZcI-HA-fup"/>
+                            </constraints>
+                            <state key="normal" title="Resume">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Bz3-4S-wUD" secondAttribute="bottom" id="30u-qy-oTm"/>
+                        <constraint firstAttribute="bottom" secondItem="DPI-jp-gQ9" secondAttribute="bottom" id="N4J-Y4-KQY"/>
+                        <constraint firstItem="JSy-rQ-L4m" firstAttribute="top" secondItem="7El-AZ-JnV" secondAttribute="top" id="PRp-EG-CY7"/>
+                        <constraint firstItem="DPI-jp-gQ9" firstAttribute="leading" secondItem="7El-AZ-JnV" secondAttribute="leading" id="jkU-V0-qtn"/>
+                        <constraint firstItem="JSy-rQ-L4m" firstAttribute="centerX" secondItem="7El-AZ-JnV" secondAttribute="centerX" id="rzB-2v-m21"/>
+                        <constraint firstAttribute="height" constant="115" id="v3o-57-Uqa"/>
+                        <constraint firstAttribute="trailing" secondItem="Bz3-4S-wUD" secondAttribute="trailing" id="zea-g8-wde"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7El-AZ-JnV" secondAttribute="trailing" constant="47" id="Zmo-o7-fd9"/>
+                <constraint firstItem="7El-AZ-JnV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hMz-RM-Glm"/>
+                <constraint firstItem="7El-AZ-JnV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="nat-iW-VPU"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="131"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

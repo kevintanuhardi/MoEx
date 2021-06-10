@@ -15,6 +15,14 @@
 		61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F62266E35120085C241 /* ModuleExerciseViewController.xib */; };
 		61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61725F65266E36630085C241 /* ListExerciseViewController.swift */; };
 		61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F66266E36630085C241 /* ListExerciseViewController.xib */; };
+		9AABC528266F5EF1004083E9 /* ModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC527266F5EF1004083E9 /* ModuleModel.swift */; };
+		9AABC52E266F9773004083E9 /* FinishExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC52C266F9773004083E9 /* FinishExerciseViewController.swift */; };
+		9AABC52F266F9773004083E9 /* FinishExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AABC52D266F9773004083E9 /* FinishExerciseViewController.xib */; };
+		9AABC532266F9782004083E9 /* PauseExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC530266F9782004083E9 /* PauseExerciseViewController.swift */; };
+		9AABC533266F9782004083E9 /* PauseExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AABC531266F9782004083E9 /* PauseExerciseViewController.xib */; };
+		9AABC536266F978D004083E9 /* BreakExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC534266F978D004083E9 /* BreakExerciseViewController.swift */; };
+		9AABC537266F978D004083E9 /* BreakExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AABC535266F978D004083E9 /* BreakExerciseViewController.xib */; };
+		9AABC53D2671AB9A004083E9 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC53C2671AB9A004083E9 /* UIImageView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +36,14 @@
 		61725F62266E35120085C241 /* ModuleExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModuleExerciseViewController.xib; sourceTree = "<group>"; };
 		61725F65266E36630085C241 /* ListExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExerciseViewController.swift; sourceTree = "<group>"; };
 		61725F66266E36630085C241 /* ListExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListExerciseViewController.xib; sourceTree = "<group>"; };
+		9AABC527266F5EF1004083E9 /* ModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleModel.swift; sourceTree = "<group>"; };
+		9AABC52C266F9773004083E9 /* FinishExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishExerciseViewController.swift; sourceTree = "<group>"; };
+		9AABC52D266F9773004083E9 /* FinishExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishExerciseViewController.xib; sourceTree = "<group>"; };
+		9AABC530266F9782004083E9 /* PauseExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseExerciseViewController.swift; sourceTree = "<group>"; };
+		9AABC531266F9782004083E9 /* PauseExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PauseExerciseViewController.xib; sourceTree = "<group>"; };
+		9AABC534266F978D004083E9 /* BreakExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakExerciseViewController.swift; sourceTree = "<group>"; };
+		9AABC535266F978D004083E9 /* BreakExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreakExerciseViewController.xib; sourceTree = "<group>"; };
+		9AABC53C2671AB9A004083E9 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				61725F58266E32A10085C241 /* App */,
+				9AABC539267107C2004083E9 /* Core */,
 				61725F59266E32A90085C241 /* Module */,
 				61725F5A266E32D90085C241 /* Resources */,
 				188332622669D3CD0092A504 /* Info.plist */,
@@ -80,6 +97,9 @@
 		61725F59266E32A90085C241 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				9AABC52B266F974B004083E9 /* FinishExercise */,
+				9AABC52A266F9745004083E9 /* PauseExercise */,
+				9AABC529266F8D42004083E9 /* BreakExercise */,
 				61725F5B266E340E0085C241 /* Module Exercise */,
 				61725F5C266E341A0085C241 /* List Exercise */,
 			);
@@ -111,6 +131,66 @@
 				61725F66266E36630085C241 /* ListExerciseViewController.xib */,
 			);
 			path = "List Exercise";
+			sourceTree = "<group>";
+		};
+		9AABC526266F5EA9004083E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC527266F5EF1004083E9 /* ModuleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9AABC529266F8D42004083E9 /* BreakExercise */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC534266F978D004083E9 /* BreakExerciseViewController.swift */,
+				9AABC535266F978D004083E9 /* BreakExerciseViewController.xib */,
+			);
+			path = BreakExercise;
+			sourceTree = "<group>";
+		};
+		9AABC52A266F9745004083E9 /* PauseExercise */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC530266F9782004083E9 /* PauseExerciseViewController.swift */,
+				9AABC531266F9782004083E9 /* PauseExerciseViewController.xib */,
+			);
+			path = PauseExercise;
+			sourceTree = "<group>";
+		};
+		9AABC52B266F974B004083E9 /* FinishExercise */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC52C266F9773004083E9 /* FinishExerciseViewController.swift */,
+				9AABC52D266F9773004083E9 /* FinishExerciseViewController.xib */,
+			);
+			path = FinishExercise;
+			sourceTree = "<group>";
+		};
+		9AABC539267107C2004083E9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC53A267107CC004083E9 /* Utils */,
+				9AABC526266F5EA9004083E9 /* Model */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9AABC53A267107CC004083E9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC53B2671AB87004083E9 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9AABC53B2671AB87004083E9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9AABC53C2671AB9A004083E9 /* UIImageView+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +251,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */,
+				9AABC537266F978D004083E9 /* BreakExerciseViewController.xib in Resources */,
+				9AABC52F266F9773004083E9 /* FinishExerciseViewController.xib in Resources */,
 				61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */,
+				9AABC533266F9782004083E9 /* PauseExerciseViewController.xib in Resources */,
 				188332612669D3CD0092A504 /* LaunchScreen.storyboard in Resources */,
 				1883325E2669D3CD0092A504 /* Assets.xcassets in Resources */,
 			);
@@ -184,9 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AABC536266F978D004083E9 /* BreakExerciseViewController.swift in Sources */,
 				61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */,
 				188332552669D3CD0092A504 /* AppDelegate.swift in Sources */,
+				9AABC53D2671AB9A004083E9 /* UIImageView+Ext.swift in Sources */,
+				9AABC532266F9782004083E9 /* PauseExerciseViewController.swift in Sources */,
 				188332572669D3CD0092A504 /* SceneDelegate.swift in Sources */,
+				9AABC52E266F9773004083E9 /* FinishExerciseViewController.swift in Sources */,
+				9AABC528266F5EF1004083E9 /* ModuleModel.swift in Sources */,
 				61725F63266E35120085C241 /* ModuleExerciseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
