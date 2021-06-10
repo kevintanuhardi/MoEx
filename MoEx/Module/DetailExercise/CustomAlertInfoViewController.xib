@@ -4,12 +4,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlertInfoViewController" customModule="MoEx" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBlurUi" destination="eFh-cw-nxa" id="iYE-Nd-yoz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -17,25 +19,46 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST ALERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-qW-9LY">
-                    <rect key="frame" x="133" y="484" width="149" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyb-Ox-Coi">
-                    <rect key="frame" x="320" y="322" width="74" height="48"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <state key="normal" title="Close"/>
-                    <connections>
-                        <action selector="btnDismiss:" destination="-1" eventType="touchUpInside" id="cA5-uV-P4c"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-cw-nxa">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST ALERT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-qW-9LY">
+                            <rect key="frame" x="133" y="226" width="149" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyb-Ox-Coi">
+                            <rect key="frame" x="260" y="126" width="74" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <state key="normal" title="Close"/>
+                            <connections>
+                                <action selector="btnDismiss:" destination="-1" eventType="touchUpInside" id="cA5-uV-P4c"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Vyb-Ox-Coi" firstAttribute="top" secondItem="eFh-cw-nxa" secondAttribute="bottom" constant="-763" id="Djp-71-BAS"/>
+                        <constraint firstAttribute="trailing" secondItem="Vyb-Ox-Coi" secondAttribute="trailing" constant="62" id="Sh1-U9-Q6e"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="134.05797101449275" y="-106.13839285714285"/>
+            <constraints>
+                <constraint firstItem="eFh-cw-nxa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4q4-Hb-qHL"/>
+                <constraint firstItem="eFh-cw-nxa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7SD-ch-49f"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eFh-cw-nxa" secondAttribute="bottom" id="8yU-K9-xOc"/>
+                <constraint firstItem="eFh-cw-nxa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CnV-zV-Yfr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eFh-cw-nxa" secondAttribute="trailing" id="YZ1-15-k5y"/>
+            </constraints>
+            <point key="canvasLocation" x="133.33333333333334" y="-106.47321428571428"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

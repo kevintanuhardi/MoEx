@@ -20,14 +20,16 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
            myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
         
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        //always fill the view
-        blurEffectView.frame = self.view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.tag = 100
-        view.addSubview(blurEffectView)
-        blurView = blurEffectView
+//        let blurEffect = UIBlurEffect(style: .dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        //always fill the view
+//        blurEffectView.frame = self.view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        blurEffectView.tag = 100
+//        self.view.addSubview(blurEffectView)
+//        blurView = blurEffectView
+        
+        
         self.navigationController?.present(myAlert, animated: true, completion: nil)
     }
     
@@ -40,16 +42,23 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func clearBlur() {
-        print("clear blur here")
-        blurView?.removeFromSuperview()
-        self.view.viewWithTag(100)?.removeFromSuperview()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let url = URL(string: "https://www.youtube.com/embed/MO10KOoQx5E")!
+        thumb.load(URLRequest(url: url))
+        thumb.allowsBackForwardNavigationGestures = true
     }
+//    func clearBlur() {
+//        print("clear blur here")
+//        blurView?.isHidden = true
+//        blurView?.removeFromSuperview()
+//        self.view.viewWithTag(100)?.removeFromSuperview()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print("view will appear")
-        clearBlur()
+        //clearBlur()
     }
     
     func setupView() {
@@ -62,9 +71,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
         
-        let url = URL(string: "https://www.youtube.com/embed/9bZkp7q19f0")!
-        thumb.load(URLRequest(url: url))
-        thumb.allowsBackForwardNavigationGestures = true
+        
     }
 
 
