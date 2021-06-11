@@ -8,11 +8,15 @@
 import UIKit
 import WebKit
 
-class DetailExercise: UIViewController, WKNavigationDelegate {
+class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    
     @IBOutlet weak var thumb: WKWebView!
+    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var btnOpenInstruction: UIButton!
     
-    private weak var blurView: UIView?
+    //private weak var blurView: UIView?
+    let benefitData = ["a", "b", "c"]
     
     @IBAction func onClick(_ sender: Any) {
         let myAlert = CustomAlertInfoViewController()
@@ -40,6 +44,22 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         setupView()
         // Do any additional setup after loading the view.
+        let nib = UINib(nibName: "BenefitTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "BenefitTableIndentifier")
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func setupView() {
+        btnOpenInstruction.setTitle("See Instructions", for: .normal)
+        btnOpenInstruction.backgroundColor = #colorLiteral(red: 0, green: 0.4393936992, blue: 0.5154479146, alpha: 1)
+        btnOpenInstruction.layer.cornerRadius = 10
+        btnOpenInstruction.translatesAutoresizingMaskIntoConstraints = false
+        //btnOpenInstruction.widthAnchor.constraint(equalToConstant: 380).isActive = true
+        //btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        //btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        //btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +68,8 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
         thumb.load(URLRequest(url: url))
         thumb.allowsBackForwardNavigationGestures = true
     }
+    
+  
 //    func clearBlur() {
 //        print("clear blur here")
 //        blurView?.isHidden = true
@@ -55,34 +77,19 @@ class DetailExercise: UIViewController, WKNavigationDelegate {
 //        self.view.viewWithTag(100)?.removeFromSuperview()
 //    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        print("view will appear")
-        //clearBlur()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return benefitData.count
     }
     
-    func setupView() {
-        btnOpenInstruction.setTitle("See Instructions", for: .normal)
-        btnOpenInstruction.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-        btnOpenInstruction.layer.cornerRadius = 10
-        btnOpenInstruction.translatesAutoresizingMaskIntoConstraints = false
-        btnOpenInstruction.widthAnchor.constraint(equalToConstant: 380).isActive = true
-        btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BenefitTableIndentifier", for: indexPath) as! BenefitTableViewCell
         
-        
+//                let data = benefitData[indexPath.row]
+//                cell.descLabel.text = data
+               
+                return cell
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

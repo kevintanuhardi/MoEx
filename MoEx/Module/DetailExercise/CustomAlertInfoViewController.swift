@@ -9,6 +9,7 @@ import UIKit
 
 class CustomAlertInfoViewController: UIViewController {
     
+    @IBOutlet weak var viewText: UIView!
     @IBOutlet weak var viewBlurUi: UIView!
     @IBAction func btnDismiss(_ sender: Any) {
             print("dismiss custom alert")
@@ -33,6 +34,8 @@ class CustomAlertInfoViewController: UIViewController {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.viewBlurUi.insertSubview(blurEffectView, at: 0)
         self.viewBlurUi.backgroundColor = .clear
+        
+        self.viewText.layer.cornerRadius = 10
     }
 
     /*
