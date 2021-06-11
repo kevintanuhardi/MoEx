@@ -16,7 +16,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     @IBOutlet weak var btnOpenInstruction: UIButton!
     
     //private weak var blurView: UIView?
-    let benefitData = ["a", "b", "c"]
+    let benefitData = ["Burning a", "Burning b", "Burning c"]
     
     @IBAction func onClick(_ sender: Any) {
         let myAlert = CustomAlertInfoViewController()
@@ -49,6 +49,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         
         tableView.delegate = self
         tableView.dataSource = self
+        view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
     }
     
     func setupView() {
@@ -56,6 +57,8 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         btnOpenInstruction.backgroundColor = #colorLiteral(red: 0, green: 0.4393936992, blue: 0.5154479146, alpha: 1)
         btnOpenInstruction.layer.cornerRadius = 10
         btnOpenInstruction.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         //btnOpenInstruction.widthAnchor.constraint(equalToConstant: 380).isActive = true
         //btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
         //btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -82,11 +85,27 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         return benefitData.count
     }
     
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Benefits"
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60))
+        headerView.backgroundColor =  .white
+        let label = UILabel(frame: CGRect(x: 12, y: 0, width: tableView.bounds.size.width, height: 30))
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.text = "Benefits"
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        headerView.addSubview(label)
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "benefitTableIndentifier", for: indexPath) as! BenefitTableViewCell
         
-//                let data = benefitData[indexPath.row]
-//                cell.descLabel.text = data
+                let data = benefitData[indexPath.row]
+                cell.descLabel.text = data
                
                 return cell
     }
