@@ -45,7 +45,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         setupView()
         // Do any additional setup after loading the view.
         let nib = UINib(nibName: "BenefitTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "BenefitTableIndentifier")
+        tableView.register(nib, forCellReuseIdentifier: "benefitTableIndentifier")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -83,7 +83,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BenefitTableIndentifier", for: indexPath) as! BenefitTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "benefitTableIndentifier", for: indexPath) as! BenefitTableViewCell
         
 //                let data = benefitData[indexPath.row]
 //                cell.descLabel.text = data

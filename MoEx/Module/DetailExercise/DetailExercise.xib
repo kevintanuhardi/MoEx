@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailExercise" customModule="MoEx" customModuleProvider="target">
             <connections>
                 <outlet property="btnOpenInstruction" destination="rDa-0S-WY2" id="4FQ-lL-ZVt"/>
-                <outlet property="tableView" destination="sfS-ZG-Gb9" id="LeB-7w-Rc6"/>
+                <outlet property="tableView" destination="sfS-ZG-Gb9" id="zRA-Lg-Mls"/>
                 <outlet property="thumb" destination="Mlx-1l-A43" id="Daq-Au-XmS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -72,7 +72,6 @@
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sfS-ZG-Gb9">
                             <rect key="frame" x="0.0" y="204" width="390" height="128"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="128" id="Djc-za-muO"/>
                             </constraints>
