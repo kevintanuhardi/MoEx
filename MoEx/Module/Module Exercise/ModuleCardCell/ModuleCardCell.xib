@@ -17,29 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="push up" translatesAutoresizingMaskIntoConstraints="NO" id="7km-I6-Tj0" userLabel="ThumbImage">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="291"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="291" id="4uw-mZ-amS"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSU-Xh-Z2Y" userLabel="ListExerciseButton">
-                        <rect key="frame" x="15" y="303" width="330" height="49"/>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.42352941176470588" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="List Exercise">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <connections>
-                            <action selector="listExerciseButtonTouched:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JCF-y8-H8c"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 Exercise • 15 Minutes • 60 Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-sa-eSR" userLabel="ExerciseInfoLabel">
-                        <rect key="frame" x="20" y="259" width="320" height="22"/>
+                        <rect key="frame" x="20" y="318" width="320" height="22"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initiation Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVb-Ki-iAd" userLabel="ExerciseTitleLabel">
-                        <rect key="frame" x="20" y="216" width="320" height="31"/>
+                        <rect key="frame" x="20" y="275" width="320" height="31"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,24 +36,20 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="7km-I6-Tj0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EDY-j8-Lo3"/>
-                <constraint firstAttribute="bottom" secondItem="LSU-Xh-Z2Y" secondAttribute="bottom" constant="10" id="G4m-4h-fik"/>
+                <constraint firstAttribute="bottom" secondItem="7V0-sa-eSR" secondAttribute="bottom" constant="20" id="F5z-Yb-V8k"/>
                 <constraint firstAttribute="trailing" secondItem="7km-I6-Tj0" secondAttribute="trailing" id="IvN-xv-296"/>
                 <constraint firstItem="7V0-sa-eSR" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JaX-45-L5k"/>
-                <constraint firstItem="LSU-Xh-Z2Y" firstAttribute="top" secondItem="7V0-sa-eSR" secondAttribute="bottom" constant="20" id="OBZ-f0-IpX"/>
                 <constraint firstItem="7km-I6-Tj0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SIZ-34-64T"/>
-                <constraint firstItem="LSU-Xh-Z2Y" firstAttribute="top" secondItem="7km-I6-Tj0" secondAttribute="bottom" constant="10" id="T0K-fI-qZQ"/>
                 <constraint firstAttribute="trailing" secondItem="7V0-sa-eSR" secondAttribute="trailing" constant="20" id="THZ-Eu-KG4"/>
-                <constraint firstAttribute="trailing" secondItem="LSU-Xh-Z2Y" secondAttribute="trailing" constant="15" id="aEh-nb-etQ"/>
+                <constraint firstAttribute="bottom" secondItem="7km-I6-Tj0" secondAttribute="bottom" id="ene-DA-PQJ"/>
                 <constraint firstItem="7V0-sa-eSR" firstAttribute="top" secondItem="IVb-Ki-iAd" secondAttribute="bottom" constant="12" id="n6c-AO-sgD"/>
                 <constraint firstItem="7V0-sa-eSR" firstAttribute="leading" secondItem="IVb-Ki-iAd" secondAttribute="leading" id="qMj-8j-D3j"/>
-                <constraint firstItem="LSU-Xh-Z2Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="qyC-XD-ZdC"/>
                 <constraint firstItem="7V0-sa-eSR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ujC-b7-Icy"/>
                 <constraint firstItem="IVb-Ki-iAd" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="zpg-fm-2T5"/>
             </constraints>
             <connections>
                 <outlet property="exerciseInfoLabel" destination="7V0-sa-eSR" id="Ni9-eM-HSW"/>
                 <outlet property="exerciseTitleLabel" destination="IVb-Ki-iAd" id="F0g-BS-3Oq"/>
-                <outlet property="listExerciseButton" destination="LSU-Xh-Z2Y" id="dRx-vB-CET"/>
                 <outlet property="thumbImage" destination="7km-I6-Tj0" id="gxK-do-Wl1"/>
             </connections>
             <point key="canvasLocation" x="132" y="110"/>

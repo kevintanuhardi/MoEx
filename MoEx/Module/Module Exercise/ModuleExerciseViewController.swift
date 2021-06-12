@@ -35,13 +35,8 @@ class ModuleExerciseViewController: UIViewController {
         moduleCardCollectionView.register(nib, forCellWithReuseIdentifier: "moduleCardIdentifier")
         moduleCardCollectionView.dataSource = self;
         moduleCardCollectionView.delegate = self;
-    }
-    
-    private func navigateToListExercise(module: ModuleModel) {
-        let listExerciseVC = ListExerciseViewController()
         
-        listExerciseVC.currentModule = module;
-        self.navigationController?.pushViewController(listExerciseVC, animated: true)
+        moduleCardCollectionView.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,17 +48,13 @@ class ModuleExerciseViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func navigateToListExercise(module: ModuleModel) {
+        let listExerciseVC = ListExerciseViewController()
+        
+        listExerciseVC.currentModule = module;
+        self.navigationController?.pushViewController(listExerciseVC, animated: true)
     }
-    */
 
 }
 
@@ -78,7 +69,13 @@ extension ModuleExerciseViewController: UICollectionViewDataSource, UICollection
         
         cell.delegate = self;
         cell.module = moduleList[indexPath.row]
+        
         return cell;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentModule = moduleList[indexPath.row]
+        navigateToListExercise(module: currentModule)
     }
 }
 

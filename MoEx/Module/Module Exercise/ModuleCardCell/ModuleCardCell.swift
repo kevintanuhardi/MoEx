@@ -16,8 +16,6 @@ class ModuleCardCell: UICollectionViewCell {
 
     @IBOutlet weak var thumbImage: UIImageView!
     
-    @IBOutlet weak var listExerciseButton: UIButton!
-    
     @IBOutlet weak var exerciseTitleLabel: UILabel!
     @IBOutlet weak var exerciseInfoLabel: UILabel!
     
@@ -35,8 +33,26 @@ class ModuleCardCell: UICollectionViewCell {
         }
     }
     
+    func shadowDecorate() {
+            let radius: CGFloat = 10
+            contentView.layer.cornerRadius = radius
+            contentView.layer.borderWidth = 1
+            contentView.layer.borderColor = UIColor.clear.cgColor
+            contentView.layer.masksToBounds = true
+        
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOffset = .zero
+            layer.shadowRadius = 5.0
+            layer.shadowOpacity = 0.8
+            layer.masksToBounds = false
+            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+            layer.cornerRadius = radius
+        }
+    
     func setupView() {
-        listExerciseButton.layer.cornerRadius = 16
+
+        shadowDecorate()
+        
         thumbImage.image = module?.thumb
         exerciseTitleLabel.text = module?.title
         

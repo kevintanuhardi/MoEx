@@ -26,9 +26,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aM9-lp-vvP">
-                    <rect key="frame" x="15" y="116.5" width="384" height="745.5"/>
+                    <rect key="frame" x="0.0" y="116.5" width="414" height="745.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fNn-gj-bXG">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="fNn-gj-bXG">
                         <size key="itemSize" width="360" height="360"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -42,10 +42,10 @@
                 <constraint firstItem="ZRM-NK-yKD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="1ai-Wp-k0L"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZRM-NK-yKD" secondAttribute="trailing" constant="15" id="2xf-kb-FMM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aM9-lp-vvP" secondAttribute="bottom" id="9Y8-XK-41t"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aM9-lp-vvP" secondAttribute="trailing" constant="15" id="RmM-LW-ENn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aM9-lp-vvP" secondAttribute="trailing" id="RmM-LW-ENn"/>
                 <constraint firstItem="aM9-lp-vvP" firstAttribute="top" secondItem="ZRM-NK-yKD" secondAttribute="bottom" constant="20" id="hJV-aW-WaB"/>
                 <constraint firstItem="ZRM-NK-yKD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="pIv-fD-LW9"/>
-                <constraint firstItem="aM9-lp-vvP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="y0f-ZP-cGH"/>
+                <constraint firstItem="aM9-lp-vvP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="y0f-ZP-cGH"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>
         </view>
