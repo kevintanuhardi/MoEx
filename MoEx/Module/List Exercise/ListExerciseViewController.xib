@@ -14,6 +14,7 @@
                 <outlet property="moduleDescLabel" destination="yug-gq-XBT" id="lf4-ef-Utz"/>
                 <outlet property="moduleDurationLabel" destination="FqL-vX-Mqs" id="3UW-6i-Tgx"/>
                 <outlet property="moduleTitleLabel" destination="1cB-IR-3W4" id="h6m-QS-rS7"/>
+                <outlet property="startButton" destination="TJ2-eo-5eB" id="iZ6-D0-81J"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

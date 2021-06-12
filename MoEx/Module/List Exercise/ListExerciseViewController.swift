@@ -15,6 +15,8 @@ class ListExerciseViewController: UIViewController {
     @IBOutlet weak var moduleDurationLabel: UILabel!
     @IBOutlet weak var moduleDescLabel: UILabel!
     
+    @IBOutlet weak var startButton: UIButton!
+    
     var currentModule: ModuleModel?
     
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ class ListExerciseViewController: UIViewController {
     }
     
     func setupUI () {
+        startButton.layer.cornerRadius = 8
         let nib = UINib(nibName: "ExerciseTableViewCell", bundle: nil)
         exerciseTableView.register(nib, forCellReuseIdentifier: "exerciseCellIdentifier")
         exerciseTableView.dataSource = self;
@@ -52,7 +55,7 @@ extension ListExerciseViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = exerciseTableView.dequeueReusableCell(withIdentifier: "exerciseCellIdentifier", for: indexPath) as! ExerciseTableViewCell
+        let cell = exerciseTableView.dequeueReusableCell(withIdentifier: "exerciseCellIdentifier", for: indexPath) as! ExerciseTableViewCell
         
 //        cell.delegate = self;
         if let exerciseList = currentModule?.exercise {
