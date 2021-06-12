@@ -19,6 +19,7 @@ struct ModuleModel {
 
 struct Exercise {
 //    let gif: String
+    let title: String
     let thumb: UIImage
     let benefits: [Benefit]
     let equipment: String?

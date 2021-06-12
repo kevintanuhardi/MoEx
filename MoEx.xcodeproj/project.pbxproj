@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184090E72670EF6E0022AAEA /* ModuleCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184090E52670EF6E0022AAEA /* ModuleCardCell.swift */; };
+		184090E82670EF6E0022AAEA /* ModuleCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184090E62670EF6E0022AAEA /* ModuleCardCell.xib */; };
+		184090ED2671AA3B0022AAEA /* ModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184090EC2671AA3B0022AAEA /* ModuleModel.swift */; };
+		184090F82673673A0022AAEA /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184090F62673673A0022AAEA /* ExerciseTableViewCell.swift */; };
+		184090F92673673A0022AAEA /* ExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184090F72673673A0022AAEA /* ExerciseTableViewCell.xib */; };
 		188332552669D3CD0092A504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188332542669D3CD0092A504 /* AppDelegate.swift */; };
 		188332572669D3CD0092A504 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188332562669D3CD0092A504 /* SceneDelegate.swift */; };
 		1883325E2669D3CD0092A504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1883325D2669D3CD0092A504 /* Assets.xcassets */; };
@@ -32,6 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184090E52670EF6E0022AAEA /* ModuleCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleCardCell.swift; sourceTree = "<group>"; };
+		184090E62670EF6E0022AAEA /* ModuleCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModuleCardCell.xib; sourceTree = "<group>"; };
+		184090EC2671AA3B0022AAEA /* ModuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleModel.swift; sourceTree = "<group>"; };
+		184090F62673673A0022AAEA /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		184090F72673673A0022AAEA /* ExerciseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseTableViewCell.xib; sourceTree = "<group>"; };
 		188332512669D3CD0092A504 /* MoEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188332542669D3CD0092A504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188332562669D3CD0092A504 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +79,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184090E42670EF4F0022AAEA /* ModuleCardCell */ = {
+			isa = PBXGroup;
+			children = (
+				184090E52670EF6E0022AAEA /* ModuleCardCell.swift */,
+				184090E62670EF6E0022AAEA /* ModuleCardCell.xib */,
+			);
+			path = ModuleCardCell;
+			sourceTree = "<group>";
+		};
+		184090EB2671AA3B0022AAEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				184090EC2671AA3B0022AAEA /* ModuleModel.swift */,
+			);
+			name = Model;
+			path = MoEx/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		184090F5267367180022AAEA /* ExerciseCell */ = {
+			isa = PBXGroup;
+			children = (
+				184090F62673673A0022AAEA /* ExerciseTableViewCell.swift */,
+				184090F72673673A0022AAEA /* ExerciseTableViewCell.xib */,
+			);
+			path = ExerciseCell;
+			sourceTree = "<group>";
+		};
 		188332482669D3CC0092A504 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +125,7 @@
 		188332532669D3CD0092A504 /* MoEx */ = {
 			isa = PBXGroup;
 			children = (
+				184090EB2671AA3B0022AAEA /* Model */,
 				61725F58266E32A10085C241 /* App */,
 				9AABC539267107C2004083E9 /* Core */,
 				61725F59266E32A90085C241 /* Module */,
@@ -160,6 +198,7 @@
 		61725F5B266E340E0085C241 /* Module Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				184090E42670EF4F0022AAEA /* ModuleCardCell */,
 				61725F61266E35120085C241 /* ModuleExerciseViewController.swift */,
 				61725F62266E35120085C241 /* ModuleExerciseViewController.xib */,
 			);
@@ -169,6 +208,7 @@
 		61725F5C266E341A0085C241 /* List Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				184090F5267367180022AAEA /* ExerciseCell */,
 				61725F65266E36630085C241 /* ListExerciseViewController.swift */,
 				61725F66266E36630085C241 /* ListExerciseViewController.xib */,
 			);
@@ -292,11 +332,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184090E82670EF6E0022AAEA /* ModuleCardCell.xib in Resources */,
 				61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */,
 				9AABC537266F978D004083E9 /* BreakExerciseViewController.xib in Resources */,
 				9AABC52F266F9773004083E9 /* FinishExerciseViewController.xib in Resources */,
 				61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */,
 				9AABC533266F9782004083E9 /* PauseExerciseViewController.xib in Resources */,
+				184090F92673673A0022AAEA /* ExerciseTableViewCell.xib in Resources */,
 				188332612669D3CD0092A504 /* LaunchScreen.storyboard in Resources */,
 				614ACB432670C0B100A91190 /* DoingExerciseViewController.xib in Resources */,
 				614ACB3C2670C01500A91190 /* HowToTableViewCell.xib in Resources */,
@@ -313,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AABC536266F978D004083E9 /* BreakExerciseViewController.swift in Sources */,
+				184090ED2671AA3B0022AAEA /* ModuleModel.swift in Sources */,
 				61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */,
 				188332552669D3CD0092A504 /* AppDelegate.swift in Sources */,
 				614ACB462670C12D00A91190 /* DoingExerciseViewController.swift in Sources */,
@@ -321,6 +364,8 @@
 				188332572669D3CD0092A504 /* SceneDelegate.swift in Sources */,
 				9AABC52E266F9773004083E9 /* FinishExerciseViewController.swift in Sources */,
 				9AABC528266F5EF1004083E9 /* ModuleModel.swift in Sources */,
+				184090E72670EF6E0022AAEA /* ModuleCardCell.swift in Sources */,
+				184090F82673673A0022AAEA /* ExerciseTableViewCell.swift in Sources */,
 				61725F63266E35120085C241 /* ModuleExerciseViewController.swift in Sources */,
 				614ACB3A2670C01500A91190 /* DetailExerciseViewController.swift in Sources */,
 				614ACB3B2670C01500A91190 /* HowToTableViewCell.swift in Sources */,
