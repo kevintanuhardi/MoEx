@@ -20,7 +20,6 @@ class ModuleExerciseViewController: UIViewController {
         moduleCardCollectionView.register(nib, forCellWithReuseIdentifier: "moduleCardIdentifier")
         moduleCardCollectionView.dataSource = self;
         moduleCardCollectionView.delegate = self;
-        
         moduleCardCollectionView.layer.cornerRadius = 10
     }
     
@@ -69,4 +68,3 @@ extension ModuleExerciseViewController: ModuleCardDelegate {
         navigateToListExercise(module: module)
     }
 }
-
