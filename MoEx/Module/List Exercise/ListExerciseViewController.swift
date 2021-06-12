@@ -9,21 +9,59 @@ import UIKit
 
 class ListExerciseViewController: UIViewController {
 
+    @IBOutlet weak var exerciseTableView: UITableView!
+    
+    @IBOutlet weak var moduleTitleLabel: UILabel!
+    @IBOutlet weak var moduleDurationLabel: UILabel!
+    @IBOutlet weak var moduleDescLabel: UILabel!
+    
+    var currentModule: ModuleModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    func setupUI () {
+        let nib = UINib(nibName: "ExerciseTableViewCell", bundle: nil)
+        exerciseTableView.register(nib, forCellReuseIdentifier: "exerciseCellIdentifier")
+        exerciseTableView.dataSource = self;
+        exerciseTableView.delegate = self;
+        
+        moduleTitleLabel.text = currentModule?.title
+        
+        exerciseTableView.tableFooterView = UIView()
+        
+        if let duration = currentModule?.time, let desc = currentModule?.module_desc {
+            moduleDurationLabel.text = "\(duration) Minutes"
+            moduleDescLabel.text = desc
+        }
     }
 
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ListExerciseViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let exerciseCount = currentModule?.exercise?.count {
+            return exerciseCount
+        } else {
+            return 0
+        }
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = exerciseTableView.dequeueReusableCell(withIdentifier: "exerciseCellIdentifier", for: indexPath) as! ExerciseTableViewCell
+        
+//        cell.delegate = self;
+        if let exerciseList = currentModule?.exercise {
+            cell.exercise = exerciseList[indexPath.row]
+            return cell;
+        } else {
+            return cell
+        }
+    }
+    
+    
 }
