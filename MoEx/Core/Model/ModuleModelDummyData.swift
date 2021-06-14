@@ -8,7 +8,7 @@
 import UIKit
 
 struct Modules {
-    var data = [
+    static var data = [
         ModuleModel(title: "Initiation Exercise", thumb: UIImage(named: "module-thumbnail")!, module_desc: "Initiation is a total body workout that recruits every major muscle group you have. It starts off feeling light and easy but the load on the muscles soon begins to pile up and you do need to dig deep in order to continue delivering great form. ", exercise: [
             Exercise(title: "Push Up", thumb: UIImage(named: "pushup")!, benefits: [
                 Benefit(description: "Improved upper-body strength"),
@@ -23,7 +23,7 @@ struct Modules {
                 HowTo(description: "Pause, then push yourself back up.  "),
                 HowTo(description: "Repeat. ")
         ]),
-            Exercise(title: "Squats", thumb: UIImage(named: "Squat")!, benefits: [
+            Exercise(title: "Squats", thumb: UIImage(named: "squat")!, benefits: [
                 Benefit(description: "Get major definition in the legs and butt."),
                 Benefit(description: "Improve mobility in hips and ankles."),
                 Benefit(description: "Strengthen and tone the core."),
