@@ -14,23 +14,8 @@ class ModuleExerciseViewController: UIViewController {
     var moduleList = [ModuleModel]()
     
     
-    func seedData() {
-        
-        let exerciseList1 = [
-            Exercise(title: "Push-Ups", thumb: #imageLiteral(resourceName: "push-up-illustration"), benefits: nil, equipment: nil, reps: 10, illustrations: nil, howTo: nil)
-        ]
-       
-       let module1 = ModuleModel(title: "Initialization Exercise 1", thumb: #imageLiteral(resourceName: "row"), module_desc: "Initiation is a total body workout that recruits every major muscle group you have. It starts off feeling light and easy but the load on the muscles soon begins to pile up and you do need to dig deep in order to continue delivering great form. ", exercise: exerciseList1, time: 4, calories: 60)
-        
-        let module2 = ModuleModel(title: "not Initialization Exercise", thumb: #imageLiteral(resourceName: "squat"), module_desc: "Initiation is a total body workout that recruits every major muscle group you have. It starts off feeling light and easy but the load on the muscles soon begins to pile up and you do need to dig deep in order to continue delivering great form. ", exercise: nil, time: 4, calories: 60)
-       
-        moduleList.append(module1)
-        moduleList.append(module2)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        seedData()
         let nib = UINib(nibName: "ModuleCardCell", bundle: nil)
         moduleCardCollectionView.register(nib, forCellWithReuseIdentifier: "moduleCardIdentifier")
         moduleCardCollectionView.dataSource = self;
