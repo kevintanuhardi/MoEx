@@ -13,12 +13,13 @@ struct ModuleModel {
     let thumb: UIImage
     let module_desc: String
     let exercise: [Exercise]
-    let time: Int?
+    let time: Int
     let calories: Int?
 }
 
 struct Exercise {
 //    let gif: String
+    let title: String
     let thumb: UIImage
     let benefits: [Benefit]
     let equipment: String?
