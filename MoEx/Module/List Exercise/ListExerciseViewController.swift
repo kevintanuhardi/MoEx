@@ -47,7 +47,7 @@ class ListExerciseViewController: UIViewController {
 
 extension ListExerciseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let exerciseCount = currentModule?.exercise?.count {
+        if let exerciseCount = currentModule?.exercise.count {
             return exerciseCount
         } else {
             return 0

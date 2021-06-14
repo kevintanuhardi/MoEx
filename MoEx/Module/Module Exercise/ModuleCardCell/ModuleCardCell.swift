@@ -56,7 +56,7 @@ class ModuleCardCell: UICollectionViewCell {
         thumbImage.image = module?.thumb
         exerciseTitleLabel.text = module?.title
         
-        if let exerciseCount = module?.exercise?.count, let duration = module?.time {
+        if let exerciseCount = module?.exercise.count, let duration = module?.time {
             exerciseInfoLabel.text = "\(String(format: "%02d", exerciseCount)) Exercise • \(String(format: "%02d", duration)) Minutes "
         }
     }
