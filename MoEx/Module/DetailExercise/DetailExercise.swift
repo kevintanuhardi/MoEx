@@ -16,7 +16,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     @IBOutlet weak var btnOpenInstruction: UIButton!
     
     //private weak var blurView: UIView?
-    let benefitData = ["Burning a", "Burning b", "Burning c"]
+    let benefitData = ["Burning a", "Burning b", "Burning c", "burning d", "burning e"]
     
     @IBAction func onClick(_ sender: Any) {
         let myAlert = CustomAlertInfoViewController()
