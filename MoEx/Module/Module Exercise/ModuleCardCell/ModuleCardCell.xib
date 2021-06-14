@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moduleCardIdentifier" id="gTV-IL-0wX" customClass="ModuleCardCell" customModule="MoEx" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="push up" translatesAutoresizingMaskIntoConstraints="NO" id="7km-I6-Tj0" userLabel="ThumbImage">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 Exercise • 15 Minutes • 60 Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-sa-eSR" userLabel="ExerciseInfoLabel">
+                        <rect key="frame" x="20" y="318" width="320" height="22"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initiation Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVb-Ki-iAd" userLabel="ExerciseTitleLabel">
+                        <rect key="frame" x="20" y="275" width="320" height="31"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="7km-I6-Tj0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EDY-j8-Lo3"/>
+                <constraint firstAttribute="bottom" secondItem="7V0-sa-eSR" secondAttribute="bottom" constant="20" id="F5z-Yb-V8k"/>
+                <constraint firstAttribute="trailing" secondItem="7km-I6-Tj0" secondAttribute="trailing" id="IvN-xv-296"/>
+                <constraint firstItem="7V0-sa-eSR" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JaX-45-L5k"/>
+                <constraint firstItem="7km-I6-Tj0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SIZ-34-64T"/>
+                <constraint firstAttribute="trailing" secondItem="7V0-sa-eSR" secondAttribute="trailing" constant="20" id="THZ-Eu-KG4"/>
+                <constraint firstAttribute="bottom" secondItem="7km-I6-Tj0" secondAttribute="bottom" id="ene-DA-PQJ"/>
+                <constraint firstItem="7V0-sa-eSR" firstAttribute="top" secondItem="IVb-Ki-iAd" secondAttribute="bottom" constant="12" id="n6c-AO-sgD"/>
+                <constraint firstItem="7V0-sa-eSR" firstAttribute="leading" secondItem="IVb-Ki-iAd" secondAttribute="leading" id="qMj-8j-D3j"/>
+                <constraint firstItem="7V0-sa-eSR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ujC-b7-Icy"/>
+                <constraint firstItem="IVb-Ki-iAd" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="zpg-fm-2T5"/>
+            </constraints>
+            <connections>
+                <outlet property="exerciseInfoLabel" destination="7V0-sa-eSR" id="Ni9-eM-HSW"/>
+                <outlet property="exerciseTitleLabel" destination="IVb-Ki-iAd" id="F0g-BS-3Oq"/>
+                <outlet property="thumbImage" destination="7km-I6-Tj0" id="gxK-do-Wl1"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="110"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="push up" width="600" height="400"/>
+    </resources>
+</document>
