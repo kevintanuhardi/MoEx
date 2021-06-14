@@ -14,31 +14,15 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     @IBOutlet weak var thumb: WKWebView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var btnOpenInstruction: UIButton!
-    
-    //private weak var blurView: UIView?
+
     let benefitData = ["Burning a", "Burning b", "Burning c", "burning d", "burning e"]
     
     @IBAction func onClick(_ sender: Any) {
         let myAlert = CustomAlertInfoViewController()
            myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
            myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        
-        
-//        let blurEffect = UIBlurEffect(style: .dark)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        //always fill the view
-//        blurEffectView.frame = self.view.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        blurEffectView.tag = 100
-//        self.view.addSubview(blurEffectView)
-//        blurView = blurEffectView
-        
-        
         self.navigationController?.present(myAlert, animated: true, completion: nil)
     }
-    
-   
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +43,6 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         btnOpenInstruction.translatesAutoresizingMaskIntoConstraints = false
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        //btnOpenInstruction.widthAnchor.constraint(equalToConstant: 380).isActive = true
-        //btnOpenInstruction.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        //btnOpenInstruction.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        //btnOpenInstruction.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,22 +52,10 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         thumb.allowsBackForwardNavigationGestures = true
     }
     
-  
-//    func clearBlur() {
-//        print("clear blur here")
-//        blurView?.isHidden = true
-//        blurView?.removeFromSuperview()
-//        self.view.viewWithTag(100)?.removeFromSuperview()
-//    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return benefitData.count
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Benefits"
-//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 60))
