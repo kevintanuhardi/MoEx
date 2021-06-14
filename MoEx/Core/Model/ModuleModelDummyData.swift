@@ -34,7 +34,7 @@ struct Modules {
                 HowTo(description: "Pause, then return to the starting position."),
                 HowTo(description: "Repeat.")
             ]),
-            Exercise(title: "Planks", thumb: UIImage(named: "lunges")!, benefits: [
+            Exercise(title: "Planks", thumb: UIImage(named: "plank")!, benefits: [
                 Benefit(description: "Get major core definition."),
                 Benefit(description: "Reduce the risk of injury."),
                 Benefit(description: "Improve posture"),
