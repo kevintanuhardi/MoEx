@@ -18,6 +18,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     @IBOutlet weak var imgIllustration2: UIImageView!
     @IBOutlet weak var labelEquipment: UILabel!
     
+    var exercise: Exercise?
     var alertTitle:String = "some text"
     var alertDesc:String = "some desc"
     var benefitData = [Benefit]()
@@ -47,8 +48,9 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     }
     
     func setupData() {
-        print("CHECK DUMMY DATA", Modules.data[0].exercise[0])
-        let exercise = Modules.data[0].exercise[0]
+        guard let exercise = exercise else { return }
+        //print("CHECK DUMMY DATA", Modules.data[0].exercise[0])
+        //let exercise = Modules.data[0].exercise[0]
         benefitData = exercise.benefits
         illustrationData = exercise.illustrations
         

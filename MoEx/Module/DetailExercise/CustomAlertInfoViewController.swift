@@ -18,14 +18,7 @@ class CustomAlertInfoViewController: UIViewController {
     var tempDesc:String = ""
     
     @IBAction func btnDismiss(_ sender: Any) {
-            print("dismiss custom alert")
-//            let mainViewController = self.presentingViewController as? DetailExercise
-//        mainViewController?.clearBlur()
-        self.dismiss(animated: true, completion: {
-//            let DetailExerciseController = DetailExercise();
-//            DetailExerciseController.viewWillAppear(true)
-        })
-        
+        self.dismiss(animated: true, completion: nil)
     }
     var callBack: ((_ text: String)-> Void)?
     
