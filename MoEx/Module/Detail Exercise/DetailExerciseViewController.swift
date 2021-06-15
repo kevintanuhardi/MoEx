@@ -13,12 +13,21 @@ class DetailExerciseViewController: UIViewController {
     @IBOutlet weak var captionExerciseLabel: UILabel!
     @IBOutlet weak var howToTableView: UITableView!
     
+    var module: ModuleModel?
+    var exercise: Exercise?
+    var index: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
     func setupView() {
+        guard let exercise = exercise, let index = index, let module = module else { return }
+        exerciseImageView.image = exercise.thumb
+        titleExerciseLabel.text = exercise.title
+        captionExerciseLabel.text = "\(index) of \(module.exercise.count) exercises"
+        
         howToTableView.delegate = self
         howToTableView.dataSource = self
         howToTableView.register(UINib(nibName: "HowToTableViewCell", bundle: nil), forCellReuseIdentifier: "HowToCell")
@@ -28,21 +37,31 @@ class DetailExerciseViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    @IBAction func startExercisePressed(_ sender: Any) {
+    func navigateToDoingExercise() {
+        guard let module = module, let index = index else { return }
         let viewController = DoingExerciseViewController()
+        viewController.module = module
+        viewController.exercise = module.exercise[index + 1]
+        viewController.index = index + 1
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func startExercisePressed(_ sender: Any) {
+        navigateToDoingExercise()
     }
     
 }
 
 extension DetailExerciseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Handle With Data
-        4
+        guard let exercise = exercise else { return 0 }
+        return exercise.howTo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HowToCell") as? HowToTableViewCell {
+            guard let exercise = exercise else { return UITableViewCell() }
+            cell.how = exercise.howTo[indexPath.row]
             cell.selectionStyle = .none
             return cell
         }
