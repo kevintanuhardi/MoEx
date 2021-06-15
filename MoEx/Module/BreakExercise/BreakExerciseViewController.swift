@@ -37,19 +37,23 @@ class BreakExerciseViewController: UIViewController {
         nextView.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         nextView.layer.cornerRadius = 4
         if moduleModel.exercise[exerciseIndex].title == "Planks"{
-            timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) seconds • \(exerciseIndex + 1) of \(moduleModel.exercise.count)"
+            timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) seconds • \(exerciseIndex+1) of \(moduleModel.exercise.count)"
         } else {
-            timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) reps • \(exerciseIndex + 1) of \(moduleModel.exercise.count)"
+            timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) reps • \(exerciseIndex+1) of \(moduleModel.exercise.count)"
         }
-        nextExerciseLabel.text = moduleModel.exercise[exerciseIndex + 1].title
+        nextExerciseLabel.text = moduleModel.exercise[exerciseIndex].title
     }
 
 
     @IBAction func onSkipButtonClicked(sender: UIButton) {
+        guard let moduleModel = moduleModel, let exerciseIndex = exerciseIndex else { return }
         timer.invalidate()
         breakTime = 15
-        self.navigationController?.pushViewController(PauseExerciseViewController(), animated: true)
-
+        let vc = DetailExerciseViewController()
+        vc.exercise = moduleModel.exercise[exerciseIndex]
+        vc.module = moduleModel
+        vc.index = exerciseIndex
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setTimer() {

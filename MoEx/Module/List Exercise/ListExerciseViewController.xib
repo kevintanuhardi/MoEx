@@ -119,6 +119,9 @@
                     <state key="normal" title="Start Module">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="startModulePressed:" destination="-1" eventType="touchUpInside" id="GsE-GO-yPt"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -26,7 +26,7 @@ class DetailExerciseViewController: UIViewController {
         guard let exercise = exercise, let index = index, let module = module else { return }
         exerciseImageView.image = exercise.thumb
         titleExerciseLabel.text = exercise.title
-        captionExerciseLabel.text = "\(index) of \(module.exercise.count) exercises"
+        captionExerciseLabel.text = "\(index+1) of \(module.exercise.count) exercises"
         
         howToTableView.delegate = self
         howToTableView.dataSource = self
@@ -41,8 +41,8 @@ class DetailExerciseViewController: UIViewController {
         guard let module = module, let index = index else { return }
         let viewController = DoingExerciseViewController()
         viewController.module = module
-        viewController.exercise = module.exercise[index + 1]
-        viewController.index = index + 1
+        viewController.exercise = module.exercise[index]
+        viewController.index = index
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -41,8 +41,20 @@ class ListExerciseViewController: UIViewController {
             moduleDescLabel.text = desc
         }
     }
+    
+    func navigateToDetailExercise() {
+        guard let module = currentModule else { return }
+        let vc = DetailExerciseViewController()
+        vc.module = module
+        vc.exercise = module.exercise[0]
+        vc.index = 0
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
-
+    @IBAction func startModulePressed(_ sender: Any) {
+        navigateToDetailExercise()
+    }
+    
 }
 
 extension ListExerciseViewController: UITableViewDelegate, UITableViewDataSource {
