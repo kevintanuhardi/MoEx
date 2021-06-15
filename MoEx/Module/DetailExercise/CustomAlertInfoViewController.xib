@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlertInfoViewController" customModule="MoEx" customModuleProvider="target">
             <connections>
+                <outlet property="labelDesc" destination="0S7-uy-JF1" id="7SD-Fb-5rS"/>
+                <outlet property="labelTitle" destination="KV4-qW-9LY" id="jpg-8q-ETB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBlurUi" destination="eFh-cw-nxa" id="iYE-Nd-yoz"/>
                 <outlet property="viewText" destination="KgI-tg-LKM" id="aqG-9B-DkC"/>

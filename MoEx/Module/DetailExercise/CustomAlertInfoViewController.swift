@@ -9,8 +9,14 @@ import UIKit
 
 class CustomAlertInfoViewController: UIViewController {
     
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelDesc: UILabel!
     @IBOutlet weak var viewText: UIView!
     @IBOutlet weak var viewBlurUi: UIView!
+    
+    var tempTitle:String = ""
+    var tempDesc:String = ""
+    
     @IBAction func btnDismiss(_ sender: Any) {
             print("dismiss custom alert")
 //            let mainViewController = self.presentingViewController as? DetailExercise
@@ -22,6 +28,7 @@ class CustomAlertInfoViewController: UIViewController {
         
     }
     var callBack: ((_ text: String)-> Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +43,8 @@ class CustomAlertInfoViewController: UIViewController {
         self.viewBlurUi.backgroundColor = .clear
         
         self.viewText.layer.cornerRadius = 10
+        labelTitle.text = tempTitle
+        labelDesc.text = tempDesc
     }
 
     /*

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,6 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailExercise" customModule="MoEx" customModuleProvider="target">
             <connections>
                 <outlet property="btnOpenInstruction" destination="rDa-0S-WY2" id="4FQ-lL-ZVt"/>
+                <outlet property="imgIllustration1" destination="etd-1a-2Jd" id="Jkh-yS-Vp1"/>
+                <outlet property="imgIllustration2" destination="FYx-Ja-x7C" id="7c5-c6-bEx"/>
+                <outlet property="labelEquipment" destination="9Ps-VV-UJC" id="cmx-0z-Pob"/>
                 <outlet property="tableView" destination="sfS-ZG-Gb9" id="zRA-Lg-Mls"/>
                 <outlet property="thumb" destination="Mlx-1l-A43" id="Daq-Au-XmS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -18,11 +21,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+            <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDa-0S-WY2">
-                    <rect key="frame" x="16" y="575" width="343" height="60"/>
+                    <rect key="frame" x="16" y="766" width="396" height="60"/>
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Ztu-It-ZWF"/>
@@ -36,16 +39,16 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTZ-BS-eAb">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="548"/>
+                    <rect key="frame" x="0.0" y="0.0" width="428" height="739"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="left" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sfS-ZG-Gb9">
-                            <rect key="frame" x="0.0" y="250" width="375" height="150"/>
+                            <rect key="frame" x="0.0" y="250" width="428" height="150"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="Djc-za-muO"/>
                             </constraints>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4q-cR-5Gj">
-                            <rect key="frame" x="0.0" y="410" width="375" height="213"/>
+                            <rect key="frame" x="0.0" y="410" width="428" height="213"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Muscled Worked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv1-0M-lTq">
                                     <rect key="frame" x="8" y="0.0" width="328" height="41"/>
@@ -69,7 +72,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82T-ei-Vfs">
-                            <rect key="frame" x="0.0" y="633" width="375" height="88"/>
+                            <rect key="frame" x="0.0" y="633" width="428" height="88"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCK-1s-VG2">
                                     <rect key="frame" x="11" y="-11" width="341" height="57"/>
@@ -92,7 +95,7 @@
                             </constraints>
                         </view>
                         <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Mlx-1l-A43">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                            <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
                             <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="250" id="QIJ-uY-12w"/>

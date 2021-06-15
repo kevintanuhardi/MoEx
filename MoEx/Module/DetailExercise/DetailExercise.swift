@@ -14,13 +14,21 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     @IBOutlet weak var thumb: WKWebView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var btnOpenInstruction: UIButton!
-
-    let benefitData = ["Burning a", "Burning b", "Burning c", "burning d", "burning e"]
+    @IBOutlet weak var imgIllustration1: UIImageView!
+    @IBOutlet weak var imgIllustration2: UIImageView!
+    @IBOutlet weak var labelEquipment: UILabel!
+    
+    var alertTitle:String = "some text"
+    var alertDesc:String = "some desc"
+    var benefitData = [Benefit]()
+    var illustrationData = [UIImage]()
     
     @IBAction func onClick(_ sender: Any) {
         let myAlert = CustomAlertInfoViewController()
            myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
            myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        myAlert.tempTitle = alertTitle
+        myAlert.tempDesc = alertDesc
         self.navigationController?.present(myAlert, animated: true, completion: nil)
     }
     
@@ -34,6 +42,28 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        
+        setupData()
+    }
+    
+    func setupData() {
+        print("CHECK DUMMY DATA", Modules.data[0].exercise[0])
+        let exercise = Modules.data[0].exercise[0]
+        benefitData = exercise.benefits
+        illustrationData = exercise.illustrations
+        
+        imgIllustration1.image = illustrationData[0]
+        imgIllustration2.image = illustrationData[1]
+        let url = URL(string: exercise.embedLink)!
+        thumb.load(URLRequest(url: url))
+        thumb.allowsBackForwardNavigationGestures = true
+        labelEquipment.text = exercise.equipment
+        alertTitle = exercise.title
+        alertDesc = "";
+        for (index, item) in exercise.howTo.enumerated() {
+            alertDesc += "\(index+1). \(item.description) \n";
+        }
+        
     }
     
     func setupView() {
@@ -47,9 +77,6 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        let url = URL(string: "https://www.youtube.com/embed/MO10KOoQx5E")!
-        thumb.load(URLRequest(url: url))
-        thumb.allowsBackForwardNavigationGestures = true
     }
     
     
@@ -73,7 +100,7 @@ class DetailExercise: UIViewController, WKNavigationDelegate, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "benefitTableIndentifier", for: indexPath) as! BenefitTableViewCell
         
                 let data = benefitData[indexPath.row]
-                cell.descLabel.text = data
+                cell.descLabel.text = data.description
                
                 return cell
     }
