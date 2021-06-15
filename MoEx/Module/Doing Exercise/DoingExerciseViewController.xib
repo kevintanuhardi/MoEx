@@ -12,7 +12,9 @@
             <connections>
                 <outlet property="countOfExerciseLabel" destination="UOo-3e-fwS" id="gMu-Sh-FM9"/>
                 <outlet property="exerciseTitleLabel" destination="q8u-Al-2Eq" id="Fau-Hc-Twl"/>
+                <outlet property="nextView" destination="lwq-XD-OxE" id="AOe-Ce-RiC"/>
                 <outlet property="previewView" destination="9jI-Ag-2ds" id="HbO-0b-wkJ"/>
+                <outlet property="previousView" destination="BOz-tx-HID" id="gdO-e9-Ywr"/>
                 <outlet property="repExerciseLabel" destination="Jhl-am-ioq" id="5Hc-wD-zj7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -111,7 +113,7 @@
                                         <constraint firstItem="4uO-Cc-36b" firstAttribute="top" secondItem="BOz-tx-HID" secondAttribute="top" id="zpx-A5-PzJ"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb6-Il-BRz" userLabel="Next View">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mb6-Il-BRz" userLabel="Pause View">
                                     <rect key="frame" x="157" y="0.0" width="59" height="59"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pause.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4NY-mA-5Yp">
@@ -140,7 +142,7 @@
                                         <constraint firstAttribute="trailing" secondItem="4NY-mA-5Yp" secondAttribute="trailing" id="zEs-fO-o4i"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-XD-OxE" userLabel="Pause View">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwq-XD-OxE" userLabel="Next View">
                                     <rect key="frame" x="314" y="0.0" width="59" height="59"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3Ke-2Z-8fh">

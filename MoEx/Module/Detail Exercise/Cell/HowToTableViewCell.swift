@@ -8,7 +8,15 @@
 import UIKit
 
 class HowToTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var howToLabel: UILabel!
+    
+    var how: HowTo? {
+        didSet{
+            guard let how = how else { return }
+            howToLabel.text = how.description
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

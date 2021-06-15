@@ -7,19 +7,26 @@
 
 import UIKit
 import AVFoundation
-import SwiftUI
 
 class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var countOfExerciseLabel: UILabel!
     @IBOutlet weak var exerciseTitleLabel: UILabel!
     @IBOutlet weak var repExerciseLabel: UILabel!
+    @IBOutlet weak var previousView: UIView!
+    @IBOutlet weak var nextView: UIView!
     
     let captureSession = AVCaptureSession()
     private let videoOutput = AVCaptureVideoDataOutput()
     let queue = DispatchQueue(label: "camera.queue")
     
     var isPausedVideo: Bool = false
+    
+    var module: ModuleModel?
+    var exercise: Exercise?
+    var index: Int?
+    
+    var reps: Int = 0
     
     private var counter = 3 {
         didSet {
@@ -40,6 +47,23 @@ class DoingExerciseViewController: UIViewController {
     
     func setupView() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        guard let module = module, let exercise = exercise, let index = index else { return }
+        countOfExerciseLabel.text = "\(index) of \(module.exercise.count)"
+        exerciseTitleLabel.text = exercise.title
+        repExerciseLabel.text = "\(reps)/\(exercise.reps)"
+    }
+    
+    func setupButtonIndex() {
+        guard let index = index, let module = module else { return }
+        if index == 0 {
+            previewView.isHidden = true
+        } else if index == module.exercise.count - 1 {
+            nextView.isHidden = true
+        } else {
+            previewView.isHidden = false
+            nextView.isHidden = false
+        }
     }
     
     func setupButtonPreviewLayer() {
@@ -199,26 +223,5 @@ extension DoingExerciseViewController: AVCaptureVideoDataOutputSampleBufferDeleg
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // Throw the logic to handle output video frame to our posenet model
         
-    }
-}
-
-
-struct VCPreview: PreviewProvider {
-    static var previews: some View {
-        VCContainerView()
-        VCContainerView().edgesIgnoringSafeArea(.all)
-        
-    }
-    
-    struct VCContainerView: UIViewControllerRepresentable {
-        typealias UIViewControllerType = UIViewController
-        
-        func makeUIViewController(context: Context) -> UIViewController {
-            return DoingExerciseViewController()
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-    
-        }
     }
 }
