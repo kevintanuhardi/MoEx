@@ -26,6 +26,10 @@ class FinishExerciseViewController: UIViewController {
         finishButton.makeCornerRadius(cornerRadius: 8)
         circleLogoContainer.layer.cornerRadius = circleLogoContainer.frame.height/2
     }
+    
+    @IBAction func onFinishButtonClicked(sender: UIButton) {
+        self.navigationController?.pushViewController(BreakExerciseViewController(), animated: true)
+    }
 
     /*
     // MARK: - Navigation

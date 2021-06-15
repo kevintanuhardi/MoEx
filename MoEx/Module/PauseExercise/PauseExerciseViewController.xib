@@ -38,6 +38,9 @@
                             <state key="normal" title="Quit">
                                 <color key="titleColor" red="0.20392156859999999" green="0.42352941179999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="onQuitButtonClickedWithSender:" destination="-1" eventType="touchUpInside" id="EDB-Fw-ftj"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bz3-4S-wUD">
                             <rect key="frame" x="184" y="67" width="140" height="48"/>
@@ -49,6 +52,9 @@
                             <state key="normal" title="Resume">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="onResumeButtonClickedWithSender:" destination="-1" eventType="touchUpInside" id="2cM-0d-1Yu"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

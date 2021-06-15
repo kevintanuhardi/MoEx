@@ -9,21 +9,62 @@ import UIKit
 
 class ModuleExerciseViewController: UIViewController {
 
+    @IBOutlet weak var moduleCardCollectionView: UICollectionView!
+    
+    var moduleList = Modules.data
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let nib = UINib(nibName: "ModuleCardCell", bundle: nil)
+        moduleCardCollectionView.register(nib, forCellWithReuseIdentifier: "moduleCardIdentifier")
+        moduleCardCollectionView.dataSource = self;
+        moduleCardCollectionView.delegate = self;
+        moduleCardCollectionView.layer.cornerRadius = 10
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    private func navigateToListExercise(module: ModuleModel) {
+        let listExerciseVC = ListExerciseViewController()
+        
+        listExerciseVC.currentModule = module;
+        self.navigationController?.pushViewController(listExerciseVC, animated: true)
     }
 
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ModuleExerciseViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return moduleList.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = moduleCardCollectionView.dequeueReusableCell(withReuseIdentifier: "moduleCardIdentifier", for: indexPath) as! ModuleCardCell
+        
+        cell.delegate = self;
+        cell.module = moduleList[indexPath.row]
+        
+        return cell;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentModule = moduleList[indexPath.row]
+        navigateToListExercise(module: currentModule)
+    }
+}
 
+extension ModuleExerciseViewController: ModuleCardDelegate {
+    func listButtonDidTap(module: ModuleModel) {
+        navigateToListExercise(module: module)
+    }
 }
