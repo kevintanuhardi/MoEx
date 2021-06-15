@@ -27,7 +27,7 @@ class BreakExerciseViewController: UIViewController {
     }
     
     func initComponent() {
-        guard let exerciseIndex = exerciseIndex else {
+        guard let exerciseIndex = exerciseIndex, let moduleModel = moduleModel else {
             return
         }
         
@@ -36,12 +36,12 @@ class BreakExerciseViewController: UIViewController {
         nextView.layer.borderWidth = 1
         nextView.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         nextView.layer.cornerRadius = 4
-        if moduleModel?.exercise[exerciseIndex].title == "Planks"{
-            timerAndCurrentWorkout.text = "\(moduleModel?.exercise[exerciseIndex].reps) seconds • \(exerciseIndex + 1) of \(moduleModel?.exercise.count)"
+        if moduleModel.exercise[exerciseIndex].title == "Planks"{
+            timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) seconds • \(exerciseIndex + 1) of \(moduleModel.exercise.count)"
         } else {
-            timerAndCurrentWorkout.text = "\(moduleModel?.exercise[exerciseIndex].reps) reps • \(exerciseIndex + 1) of \(moduleModel?.exercise.count)"
+            timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) reps • \(exerciseIndex + 1) of \(moduleModel.exercise.count)"
         }
-        nextExerciseLabel.text = moduleModel?.exercise[exerciseIndex + 1].title
+        nextExerciseLabel.text = moduleModel.exercise[exerciseIndex + 1].title
     }
 
 
@@ -71,7 +71,6 @@ class BreakExerciseViewController: UIViewController {
             self.timerLabel.text = "00:\(self.breakTime)"
             self.navigationController?.pushViewController(PauseExerciseViewController(), animated: true)
         }
-        
     }
     /*
     // MARK: - Navigation
