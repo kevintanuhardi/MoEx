@@ -13,25 +13,35 @@ class BreakExerciseViewController: UIViewController {
     @IBOutlet weak var nextView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var nextExerciseLabel: UILabel!
-    
+    @IBOutlet weak var timerAndCurrentWorkout: UILabel!
     var timer: Timer!
     var breakTime = 15
+    var moduleModel: ModuleModel?
+    var exerciseIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initComponent()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         setTimer()
         // Do any additional setup after loading the view.
     }
     
     func initComponent() {
+        guard let exerciseIndex = exerciseIndex else {
+            return
+        }
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         skipButton.makeCornerRadius(cornerRadius: 8)
         nextView.layer.borderWidth = 1
         nextView.layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         nextView.layer.cornerRadius = 4
-        
-        
+        if moduleModel?.exercise[exerciseIndex].title == "Planks"{
+            timerAndCurrentWorkout.text = "\(moduleModel?.exercise[exerciseIndex].reps) seconds • \(exerciseIndex + 1) of \(moduleModel?.exercise.count)"
+        } else {
+            timerAndCurrentWorkout.text = "\(moduleModel?.exercise[exerciseIndex].reps) reps • \(exerciseIndex + 1) of \(moduleModel?.exercise.count)"
+        }
+        nextExerciseLabel.text = moduleModel?.exercise[exerciseIndex + 1].title
     }
 
 
