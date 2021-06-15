@@ -25,8 +25,8 @@
                     <rect key="frame" x="43" y="390.5" width="324" height="115"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSy-rQ-L4m">
-                            <rect key="frame" x="54.5" y="0.0" width="215" height="33"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                            <rect key="frame" x="60.5" y="0.0" width="203.5" height="37"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="27"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -36,6 +36,7 @@
                                 <constraint firstAttribute="height" constant="48" id="JjD-HT-I9D"/>
                                 <constraint firstAttribute="width" constant="140" id="VHZ-S7-Ti4"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                             <state key="normal" title="Quit">
                                 <color key="titleColor" red="0.20392156859999999" green="0.42352941179999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -50,6 +51,7 @@
                                 <constraint firstAttribute="height" constant="48" id="Cjd-1B-2Hj"/>
                                 <constraint firstAttribute="width" constant="140" id="ZcI-HA-fup"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                             <state key="normal" title="Resume">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
