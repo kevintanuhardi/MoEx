@@ -11,7 +11,7 @@ class ModuleExerciseViewController: UIViewController {
 
     @IBOutlet weak var moduleCardCollectionView: UICollectionView!
     
-    var moduleList = [ModuleModel]()
+    var moduleList = Modules.data
     
     
     override func viewDidLoad() {
