@@ -38,11 +38,12 @@ class DoingExerciseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        openCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        openCamera()
         setupView()
+        setupButtonIndex()
     }
     
     func setupView() {
@@ -57,12 +58,12 @@ class DoingExerciseViewController: UIViewController {
     func setupButtonIndex() {
         guard let index = index, let module = module else { return }
         if index == 0 {
-            previewView.isHidden = true
+            previousView.alpha = 0
         } else if index == module.exercise.count - 1 {
-            nextView.isHidden = true
+            nextView.alpha = 0
         } else {
-            previewView.isHidden = false
-            nextView.isHidden = false
+            previousView.alpha = 1
+            nextView.alpha = 1
         }
     }
     

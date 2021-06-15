@@ -12,9 +12,9 @@
             <connections>
                 <outlet property="countOfExerciseLabel" destination="UOo-3e-fwS" id="gMu-Sh-FM9"/>
                 <outlet property="exerciseTitleLabel" destination="q8u-Al-2Eq" id="Fau-Hc-Twl"/>
-                <outlet property="nextView" destination="lwq-XD-OxE" id="AOe-Ce-RiC"/>
+                <outlet property="nextView" destination="lwq-XD-OxE" id="wkS-JL-yWN"/>
                 <outlet property="previewView" destination="9jI-Ag-2ds" id="HbO-0b-wkJ"/>
-                <outlet property="previousView" destination="BOz-tx-HID" id="gdO-e9-Ywr"/>
+                <outlet property="previousView" destination="BOz-tx-HID" id="E3w-Fg-7X8"/>
                 <outlet property="repExerciseLabel" destination="Jhl-am-ioq" id="5Hc-wD-zj7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
