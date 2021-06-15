@@ -19,15 +19,17 @@ class PauseExerciseViewController: UIViewController {
     }
     
     func initComponent() {
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         quitButton.makeCornerRadius(cornerRadius: 8)
         resumeButton.makeCornerRadius(cornerRadius: 8)
     }
     
     @IBAction func onQuitButtonClicked(sender: UIButton){
-        self.navigationController?.pushViewController(BreakExerciseViewController(), animated: true) //change to the corresponding viewcontroller
+        self.navigationController?.pushViewController(ModuleExerciseViewController(), animated: true)
     }
     @IBAction func onResumeButtonClicked(sender: UIButton){
-        self.navigationController?.pushViewController(FinishExerciseViewController(), animated: true) //change to the corresponding viewcontroller
+        self.navigationController?.pushViewController(DoingExerciseViewController(), animated: true)
     }
 
 
