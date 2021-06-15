@@ -23,13 +23,9 @@ class PauseExerciseViewController: UIViewController {
         resumeButton.makeCornerRadius(cornerRadius: 8)
     }
     
-    
-    //change to the corresponding viewcontroller
     @IBAction func onQuitButtonClicked(sender: UIButton){
         self.navigationController?.pushViewController(ModuleExerciseViewController(), animated: true)
     }
-    
-    //change to the corresponding viewcontroller
     @IBAction func onResumeButtonClicked(sender: UIButton){
         self.navigationController?.pushViewController(DoingExerciseViewController(), animated: true)
     }
