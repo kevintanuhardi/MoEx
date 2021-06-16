@@ -161,7 +161,7 @@ class DoingExerciseViewController: UIViewController {
     }
     
     @objc func stopPressed() {
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func runInterval() {

@@ -43,7 +43,7 @@ class BreakExerciseViewController: UIViewController {
             timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) reps • \(exerciseIndex+1) of \(moduleModel.exercise.count)"
         }
         nextExerciseLabel.text = moduleModel.exercise[exerciseIndex].title
-        nextExerciseImage.image = moduleModel.thumb
+        nextExerciseImage.image = moduleModel.exercise[exerciseIndex].thumb
     }
 
 

@@ -17,6 +17,13 @@ class HowToTableViewCell: UITableViewCell {
         }
     }
     
+    var benefits: Benefit? {
+        didSet {
+            guard let benefit = benefits else { return }
+            howToLabel.text = benefit.description
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
