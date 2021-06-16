@@ -21,6 +21,7 @@ struct Exercise {
 //    let gif: String
     let title: String
     let thumb: UIImage
+    let embedLink: String
     let benefits: [Benefit]
     let equipment: String?
     let reps: Int
