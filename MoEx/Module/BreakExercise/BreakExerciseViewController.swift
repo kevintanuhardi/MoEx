@@ -14,6 +14,7 @@ class BreakExerciseViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var nextExerciseLabel: UILabel!
     @IBOutlet weak var timerAndCurrentWorkout: UILabel!
+    @IBOutlet weak var nextExerciseImage: UIImageView!
     var timer: Timer!
     var breakTime = 15
     var moduleModel: ModuleModel?
@@ -42,6 +43,7 @@ class BreakExerciseViewController: UIViewController {
             timerAndCurrentWorkout.text = "\(moduleModel.exercise[exerciseIndex].reps) reps • \(exerciseIndex+1) of \(moduleModel.exercise.count)"
         }
         nextExerciseLabel.text = moduleModel.exercise[exerciseIndex].title
+        nextExerciseImage.image = moduleModel.thumb
     }
 
 

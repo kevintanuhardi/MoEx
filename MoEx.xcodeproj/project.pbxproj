@@ -6,7 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
 		184090E72670EF6E0022AAEA /* ModuleCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184090E52670EF6E0022AAEA /* ModuleCardCell.swift */; };
 		184090E82670EF6E0022AAEA /* ModuleCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184090E62670EF6E0022AAEA /* ModuleCardCell.xib */; };
 		184090F82673673A0022AAEA /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184090F62673673A0022AAEA /* ExerciseTableViewCell.swift */; };
@@ -24,8 +23,17 @@
 		61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F62266E35120085C241 /* ModuleExerciseViewController.xib */; };
 		61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61725F65266E36630085C241 /* ListExerciseViewController.swift */; };
 		61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61725F66266E36630085C241 /* ListExerciseViewController.xib */; };
+
+		850A080C2673155300D06D89 /* BenefitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A080A2673155300D06D89 /* BenefitTableViewCell.swift */; };
+		850A080D2673155300D06D89 /* BenefitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 850A080B2673155300D06D89 /* BenefitTableViewCell.xib */; };
+		8546721C2671E8B70066F121 /* CustomAlertInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8546721A2671E8B70066F121 /* CustomAlertInfoViewController.swift */; };
+		8546721D2671E8B70066F121 /* CustomAlertInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */; };
+		854A7DCD266F88C500BC38DE /* DetailExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A7DCB266F88C500BC38DE /* DetailExercise.swift */; };
+		854A7DCE266F88C500BC38DE /* DetailExercise.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A7DCC266F88C500BC38DE /* DetailExercise.xib */; };
+
 		6177DB9E267716370075C4CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6177DB9D267716370075C4CB /* Assets.xcassets */; };
 		6177DBA02677183A0075C4CB /* ModuleModelDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177DB9F2677183A0075C4CB /* ModuleModelDummyData.swift */; };
+
 		9AABC528266F5EF1004083E9 /* ModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC527266F5EF1004083E9 /* ModuleModel.swift */; };
 		9AABC52E266F9773004083E9 /* FinishExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC52C266F9773004083E9 /* FinishExerciseViewController.swift */; };
 		9AABC52F266F9773004083E9 /* FinishExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AABC52D266F9773004083E9 /* FinishExerciseViewController.xib */; };
@@ -34,6 +42,7 @@
 		9AABC536266F978D004083E9 /* BreakExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC534266F978D004083E9 /* BreakExerciseViewController.swift */; };
 		9AABC537266F978D004083E9 /* BreakExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AABC535266F978D004083E9 /* BreakExerciseViewController.xib */; };
 		9AABC53D2671AB9A004083E9 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC53C2671AB9A004083E9 /* UIImageView+Ext.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +65,14 @@
 		61725F62266E35120085C241 /* ModuleExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModuleExerciseViewController.xib; sourceTree = "<group>"; };
 		61725F65266E36630085C241 /* ListExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExerciseViewController.swift; sourceTree = "<group>"; };
 		61725F66266E36630085C241 /* ListExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListExerciseViewController.xib; sourceTree = "<group>"; };
+
+		850A080A2673155300D06D89 /* BenefitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BenefitTableViewCell.swift; path = DetailExercise/BenefitTableViewCell.swift; sourceTree = "<group>"; };
+		850A080B2673155300D06D89 /* BenefitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BenefitTableViewCell.xib; path = DetailExercise/BenefitTableViewCell.xib; sourceTree = "<group>"; };
+		8546721A2671E8B70066F121 /* CustomAlertInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertInfoViewController.swift; path = DetailExercise/CustomAlertInfoViewController.swift; sourceTree = "<group>"; };
+		8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomAlertInfoViewController.xib; path = DetailExercise/CustomAlertInfoViewController.xib; sourceTree = "<group>"; };
+		854A7DCB266F88C500BC38DE /* DetailExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailExercise.swift; path = DetailExercise/DetailExercise.swift; sourceTree = "<group>"; };
+		854A7DCC266F88C500BC38DE /* DetailExercise.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailExercise.xib; path = DetailExercise/DetailExercise.xib; sourceTree = "<group>"; };
+
 		6177DB9D267716370075C4CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6177DB9F2677183A0075C4CB /* ModuleModelDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleModelDummyData.swift; sourceTree = "<group>"; };
 		9AABC527266F5EF1004083E9 /* ModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleModel.swift; sourceTree = "<group>"; };
@@ -66,6 +83,7 @@
 		9AABC534266F978D004083E9 /* BreakExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakExerciseViewController.swift; sourceTree = "<group>"; };
 		9AABC535266F978D004083E9 /* BreakExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreakExerciseViewController.xib; sourceTree = "<group>"; };
 		9AABC53C2671AB9A004083E9 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +190,12 @@
 				9AABC529266F8D42004083E9 /* BreakExercise */,
 				61725F5B266E340E0085C241 /* Module Exercise */,
 				61725F5C266E341A0085C241 /* List Exercise */,
+				854A7DCB266F88C500BC38DE /* DetailExercise.swift */,
+				854A7DCC266F88C500BC38DE /* DetailExercise.xib */,
+				8546721A2671E8B70066F121 /* CustomAlertInfoViewController.swift */,
+				8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */,
+				850A080A2673155300D06D89 /* BenefitTableViewCell.swift */,
+				850A080B2673155300D06D89 /* BenefitTableViewCell.xib */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -325,16 +349,28 @@
 			files = (
 				184090E82670EF6E0022AAEA /* ModuleCardCell.xib in Resources */,
 				61725F68266E36640085C241 /* ListExerciseViewController.xib in Resources */,
+
+				854A7DCE266F88C500BC38DE /* DetailExercise.xib in Resources */,
+
 				9AABC537266F978D004083E9 /* BreakExerciseViewController.xib in Resources */,
 				9AABC52F266F9773004083E9 /* FinishExerciseViewController.xib in Resources */,
+
 				61725F64266E35120085C241 /* ModuleExerciseViewController.xib in Resources */,
 				9AABC533266F9782004083E9 /* PauseExerciseViewController.xib in Resources */,
 				184090F92673673A0022AAEA /* ExerciseTableViewCell.xib in Resources */,
 				188332612669D3CD0092A504 /* LaunchScreen.storyboard in Resources */,
+
+				8546721D2671E8B70066F121 /* CustomAlertInfoViewController.xib in Resources */,
+				850A080D2673155300D06D89 /* BenefitTableViewCell.xib in Resources */,
+
 				614ACB432670C0B100A91190 /* DoingExerciseViewController.xib in Resources */,
 				614ACB3C2670C01500A91190 /* HowToTableViewCell.xib in Resources */,
 				6177DB9E267716370075C4CB /* Assets.xcassets in Resources */,
 				614ACB392670C01500A91190 /* DetailExerciseViewController.xib in Resources */,
+
+
+				1883325E2669D3CD0092A504 /* Assets.xcassets in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,9 +381,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				854A7DCD266F88C500BC38DE /* DetailExercise.swift in Sources */,
+				850A080C2673155300D06D89 /* BenefitTableViewCell.swift in Sources */,
+
 				9AABC536266F978D004083E9 /* BreakExerciseViewController.swift in Sources */,
+
 				61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */,
+
+				8546721C2671E8B70066F121 /* CustomAlertInfoViewController.swift in Sources */,
 				6177DBA02677183A0075C4CB /* ModuleModelDummyData.swift in Sources */,
+
 				188332552669D3CD0092A504 /* AppDelegate.swift in Sources */,
 				614ACB462670C12D00A91190 /* DoingExerciseViewController.swift in Sources */,
 				9AABC53D2671AB9A004083E9 /* UIImageView+Ext.swift in Sources */,
