@@ -41,7 +41,7 @@ class FinishExerciseViewController: UIViewController {
     
     
     @IBAction func onFinishButtonClicked(sender: UIButton) {
-        self.navigationController?.pushViewController(ModuleExerciseViewController(), animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     /*

@@ -25,17 +25,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jI-Ag-2ds" userLabel="Preview View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration_push_up" translatesAutoresizingMaskIntoConstraints="NO" id="UYw-kd-sIj">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration_push_up" translatesAutoresizingMaskIntoConstraints="NO" id="UYw-kd-sIj">
+                            <rect key="frame" x="0.0" y="45" width="375" height="275"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="360" id="2XI-9h-hV8"/>
                         <constraint firstItem="UYw-kd-sIj" firstAttribute="leading" secondItem="9jI-Ag-2ds" secondAttribute="leading" id="9zg-Es-dFu"/>
-                        <constraint firstAttribute="bottom" secondItem="UYw-kd-sIj" secondAttribute="bottom" id="CDT-19-Woe"/>
+                        <constraint firstAttribute="bottom" secondItem="UYw-kd-sIj" secondAttribute="bottom" constant="40" id="CDT-19-Woe"/>
                         <constraint firstAttribute="trailing" secondItem="UYw-kd-sIj" secondAttribute="trailing" id="Fh9-3u-Rb7"/>
-                        <constraint firstItem="UYw-kd-sIj" firstAttribute="top" secondItem="9jI-Ag-2ds" secondAttribute="top" id="gMN-ao-pdJ"/>
-                        <constraint firstAttribute="height" constant="360" id="sAy-sF-rZY"/>
+                        <constraint firstItem="UYw-kd-sIj" firstAttribute="top" secondItem="9jI-Ag-2ds" secondAttribute="top" constant="45" id="gMN-ao-pdJ"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBX-Ox-8xy" userLabel="Title View">

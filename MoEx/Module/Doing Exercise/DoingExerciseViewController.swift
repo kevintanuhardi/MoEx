@@ -38,18 +38,19 @@ class DoingExerciseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        openCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        openCamera()
         setupView()
+        setupButtonIndex()
     }
     
     func setupView() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         guard let module = module, let exercise = exercise, let index = index else { return }
-        countOfExerciseLabel.text = "\(index) of \(module.exercise.count)"
+        countOfExerciseLabel.text = "\(index+1) of \(module.exercise.count)"
         exerciseTitleLabel.text = exercise.title
         repExerciseLabel.text = "\(reps)/\(exercise.reps)"
     }
@@ -57,12 +58,12 @@ class DoingExerciseViewController: UIViewController {
     func setupButtonIndex() {
         guard let index = index, let module = module else { return }
         if index == 0 {
-            previewView.isHidden = true
+            previousView.alpha = 0
         } else if index == module.exercise.count - 1 {
-            nextView.isHidden = true
+            nextView.alpha = 0
         } else {
-            previewView.isHidden = false
-            nextView.isHidden = false
+            previousView.alpha = 1
+            nextView.alpha = 1
         }
     }
     
@@ -115,6 +116,31 @@ class DoingExerciseViewController: UIViewController {
         return layerCount
     }
     
+    func navigateToPauseView() {
+        let vc = PauseExerciseViewController()
+        let navVc = UINavigationController(rootViewController: vc)
+        navVc.modalPresentationStyle = .fullScreen
+        vc.onTapQuit = {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        self.navigationController?.present(navVc, animated: true, completion: nil)
+    }
+    
+    func navigateToBreakExercise() {
+        guard let index = index, let module = module else { return }
+        let nextExercise = index + 1
+        if nextExercise < module.exercise.count {
+            let vc = BreakExerciseViewController()
+            vc.moduleModel = module
+            vc.exerciseIndex = nextExercise
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = FinishExerciseViewController()
+            vc.moduleModel = module
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @objc func cameraPressed() {
         if !isPausedVideo {
             isPausedVideo = !isPausedVideo
@@ -135,7 +161,7 @@ class DoingExerciseViewController: UIViewController {
     }
     
     @objc func stopPressed() {
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func runInterval() {
@@ -151,11 +177,11 @@ class DoingExerciseViewController: UIViewController {
     }
     
     @IBAction func pausePressed(_ sender: Any) {
-        
+        navigateToPauseView()
     }
     
     @IBAction func nextExercisePressed(_ sender: Any) {
-        
+        navigateToBreakExercise()
     }
     
     @IBAction func previousExercisePressed(_ sender: Any) {

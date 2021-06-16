@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BreakExerciseViewController" customModule="MoEx" customModuleProvider="target">
             <connections>
+                <outlet property="nextExerciseImage" destination="seK-Wl-iOw" id="0X6-z7-md6"/>
                 <outlet property="nextExerciseLabel" destination="bMZ-6W-dbM" id="uLS-bi-4kK"/>
                 <outlet property="nextView" destination="OIb-jQ-ORZ" id="tFI-mr-rdz"/>
                 <outlet property="skipButton" destination="AbF-bv-DXS" id="0UH-PN-SIZ"/>

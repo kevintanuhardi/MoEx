@@ -32,8 +32,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="lgz-wc-YrF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1hs-iR-eLo"/>
+                    <constraint firstItem="lgz-wc-YrF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10.5" id="0dP-Rg-2Fp"/>
                     <constraint firstItem="lgz-wc-YrF" firstAttribute="leading" secondItem="TM7-KY-axx" secondAttribute="trailing" constant="16" id="Jbr-FA-ig7"/>
+                    <constraint firstAttribute="bottom" secondItem="lgz-wc-YrF" secondAttribute="bottom" constant="10" id="aSx-Vp-fxD"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lgz-wc-YrF" secondAttribute="trailing" constant="4" id="bTy-zf-D14"/>
                     <constraint firstItem="TM7-KY-axx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nC2-hL-fO0"/>
                     <constraint firstItem="TM7-KY-axx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="vLh-Cd-FGZ"/>

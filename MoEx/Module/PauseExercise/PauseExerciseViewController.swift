@@ -11,6 +11,8 @@ class PauseExerciseViewController: UIViewController {
     
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var resumeButton: UIButton!
+    
+    var onTapQuit: (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +28,12 @@ class PauseExerciseViewController: UIViewController {
     }
     
     @IBAction func onQuitButtonClicked(sender: UIButton){
-        self.navigationController?.pushViewController(ModuleExerciseViewController(), animated: true)
+        self.onTapQuit?()
+        self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func onResumeButtonClicked(sender: UIButton){
-        self.navigationController?.pushViewController(DoingExerciseViewController(), animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
 
