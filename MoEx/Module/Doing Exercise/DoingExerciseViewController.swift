@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Vision
 
 class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var previewView: UIView!
@@ -16,9 +17,13 @@ class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var previousView: UIView!
     @IBOutlet weak var nextView: UIView!
     
-    let captureSession = AVCaptureSession()
-    private let videoOutput = AVCaptureVideoDataOutput()
-    let queue = DispatchQueue(label: "camera.queue")
+    private var cameraView: CameraView { previewView as! CameraView }
+    
+    private var cameraFeedSession: AVCaptureSession?
+    private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
+    private var handPoseRequest = VNDetectHumanBodyPoseRequest()
+    
+    private var gestureProcessor = BodyPoseProcessor()
     
     var isPausedVideo: Bool = false
     
@@ -38,12 +43,57 @@ class DoingExerciseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        openCamera()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupView()
         setupButtonIndex()
+        setupCamera()
+    }
+    
+    func setupCamera() {
+        do {
+            if cameraFeedSession == nil {
+                cameraView.previewLayer.videoGravity = .resizeAspectFill
+                try setupAVSession()
+                cameraView.previewLayer.session = cameraFeedSession
+            }
+            cameraFeedSession?.startRunning()
+        } catch {
+            AppError.display(error, inViewController: self)
+        }
+    }
+    
+    func setupAVSession() throws {
+        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
+            throw AppError.captureSessionSetup(reason: "Could not find a front facing camera.")
+        }
+        
+        guard let deviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {
+            throw AppError.captureSessionSetup(reason: "Could not create video device input.")
+        }
+        
+        let session = AVCaptureSession()
+        session.beginConfiguration()
+        session.sessionPreset = AVCaptureSession.Preset.high
+    
+        guard session.canAddInput(deviceInput) else {
+            throw AppError.captureSessionSetup(reason: "Could not add video device input to the session")
+        }
+        session.addInput(deviceInput)
+        
+        let dataOutput = AVCaptureVideoDataOutput()
+        if session.canAddOutput(dataOutput) {
+            session.addOutput(dataOutput)
+            dataOutput.alwaysDiscardsLateVideoFrames = true
+            dataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
+            dataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+        } else {
+            throw AppError.captureSessionSetup(reason: "Could not add video data output to the session")
+        }
+        session.commitConfiguration()
+        cameraFeedSession = session
     }
     
     func setupView() {
@@ -190,64 +240,67 @@ class DoingExerciseViewController: UIViewController {
 }
 
 extension DoingExerciseViewController {
-    func openCamera() {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized:
-            self.setupAVCapture()
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { granted in
-                if granted {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.setupAVCapture()
-                    }
-                }
-            }
-        case .denied:
-            print("denied")
-        case .restricted:
-            print("restricted")
-        default:
-            print("cant access the camera")
+    func processPoint(rightShoulder: CGPoint?, rightWrist: CGPoint?, rightElbow: CGPoint?, rightHip: CGPoint?, rightAnkle: CGPoint?, rightKnee: CGPoint?){
+        guard let rightShoulder = rightShoulder, let rightWrist = rightWrist, let rightElbow = rightElbow, let rightHip = rightHip, let rightAnkle = rightAnkle, let rightKnee = rightKnee else {
+            cameraView.showPoints([], color: .clear)
+            return
         }
-    }
-    
-    func setupAVCapture() {
-        if let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
-            do {
-                let input = try AVCaptureDeviceInput(device: captureDevice)
-                if captureSession.canAddInput(input) {
-                    captureSession.addInput(input)
-                }
-            } catch let error {
-                print("Failed to set input device with error: \(error)")
-            }
-            
-            videoOutput.alwaysDiscardsLateVideoFrames = true
-            videoOutput.setSampleBufferDelegate(self, queue: queue)
-            if captureSession.canAddOutput(videoOutput) {
-                captureSession.addOutput(videoOutput)
-            }
-            
-            let cameraLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            cameraLayer.frame = self.previewView.bounds
-            cameraLayer.videoGravity = .resizeAspectFill
-            
-            self.previewView.layer.addSublayer(cameraLayer)
-            
-            let layer = createLayerCount()
-            self.previewView.layer.addSublayer(layer)
-            self.setTimer()
-            
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.captureSession.startRunning()
-            }
-        }
+        
+        let previewLayer = cameraView.previewLayer
+        let shoulderPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightShoulder)
+        let wristPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightWrist)
+        let elbowPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightElbow)
+        let hipPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightHip)
+        let anklePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightAnkle)
+        let kneePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightKnee)
+        
+        cameraView.showPoints([shoulderPointConverted, wristPointConverted, elbowPointConverted, hipPointConverted, anklePointConverted, kneePointConverted], color: .red)
     }
 }
 
 extension DoingExerciseViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // Throw the logic to handle output video frame to our posenet model
+        var rightShoulder: CGPoint?
+        var rightWrist: CGPoint?
+        var rightElbow: CGPoint?
+        var rightHip: CGPoint?
+        var rightAnkle: CGPoint?
+        var rightKnee: CGPoint?
         
+        defer {
+            DispatchQueue.main.sync {
+                self.processPoint(rightShoulder: rightShoulder, rightWrist: rightWrist, rightElbow: rightElbow, rightHip: rightHip, rightAnkle: rightAnkle, rightKnee: rightKnee)
+            }
+        }
+
+        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
+        do {
+            try handler.perform([handPoseRequest])
+            guard let observation = handPoseRequest.results?.first else {
+                return
+            }
+
+            let shoulderPoint = try observation.recognizedPoint(.rightShoulder)
+            let wristPoint = try observation.recognizedPoint(.rightWrist)
+            let elbowPoint = try observation.recognizedPoint(.rightElbow)
+            let hipPoint = try observation.recognizedPoint(.rightHip)
+            let anklePoint = try observation.recognizedPoint(.rightAnkle)
+            let kneePoint = try observation.recognizedPoint(.rightKnee)
+    
+            guard shoulderPoint.confidence > 0.3 || wristPoint.confidence > 0.3 || elbowPoint.confidence > 0.3 || hipPoint.confidence > 0.3 || anklePoint.confidence > 0.3 || kneePoint.confidence > 0.3 else {return}
+    
+            rightShoulder = CGPoint(x: shoulderPoint.location.x, y: 1 - shoulderPoint.location.y)
+            rightWrist = CGPoint(x: wristPoint.location.x, y: 1 - wristPoint.location.y)
+            rightElbow = CGPoint(x: elbowPoint.location.x, y: 1 - elbowPoint.location.y)
+            rightHip = CGPoint(x: hipPoint.location.x, y: 1 - hipPoint.location.y)
+            rightAnkle = CGPoint(x: anklePoint.location.x, y: 1 - anklePoint.location.y)
+            rightKnee = CGPoint(x: kneePoint.location.x, y: 1 - kneePoint.location.y)
+        } catch {
+            cameraFeedSession?.stopRunning()
+            let error = AppError.visionError(error: error)
+            DispatchQueue.main.async {
+                error.displayInViewController(self)
+            }
+        }
     }
 }
