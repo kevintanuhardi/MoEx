@@ -32,6 +32,9 @@
 		8546721D2671E8B70066F121 /* CustomAlertInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */; };
 		854A7DCD266F88C500BC38DE /* DetailExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A7DCB266F88C500BC38DE /* DetailExercise.swift */; };
 		854A7DCE266F88C500BC38DE /* DetailExercise.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A7DCC266F88C500BC38DE /* DetailExercise.xib */; };
+		9A6839A8267AF67700070321 /* CGPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6839A7267AF67700070321 /* CGPoint+Ext.swift */; };
+		9A6839AA267AF91E00070321 /* BodyPoseProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6839A9267AF91E00070321 /* BodyPoseProcessor.swift */; };
+		9A73FC14267A4AF900B44CC7 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FC13267A4AF900B44CC7 /* UIView+Ext.swift */; };
 		9AABC528266F5EF1004083E9 /* ModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC527266F5EF1004083E9 /* ModuleModel.swift */; };
 		9AABC52E266F9773004083E9 /* FinishExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AABC52C266F9773004083E9 /* FinishExerciseViewController.swift */; };
 		9AABC52F266F9773004083E9 /* FinishExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AABC52D266F9773004083E9 /* FinishExerciseViewController.xib */; };
@@ -70,6 +73,9 @@
 		8546721B2671E8B70066F121 /* CustomAlertInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertInfoViewController.xib; sourceTree = "<group>"; };
 		854A7DCB266F88C500BC38DE /* DetailExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExercise.swift; sourceTree = "<group>"; };
 		854A7DCC266F88C500BC38DE /* DetailExercise.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailExercise.xib; sourceTree = "<group>"; };
+		9A6839A7267AF67700070321 /* CGPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ext.swift"; sourceTree = "<group>"; };
+		9A6839A9267AF91E00070321 /* BodyPoseProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseProcessor.swift; sourceTree = "<group>"; };
+		9A73FC13267A4AF900B44CC7 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9AABC527266F5EF1004083E9 /* ModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleModel.swift; sourceTree = "<group>"; };
 		9AABC52C266F9773004083E9 /* FinishExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishExerciseViewController.swift; sourceTree = "<group>"; };
 		9AABC52D266F9773004083E9 /* FinishExerciseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishExerciseViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				9AABC53B2671AB87004083E9 /* Extension */,
+				9A6839A9267AF91E00070321 /* BodyPoseProcessor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -296,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				9AABC53C2671AB9A004083E9 /* UIImageView+Ext.swift */,
+				9A73FC13267A4AF900B44CC7 /* UIView+Ext.swift */,
+				9A6839A7267AF67700070321 /* CGPoint+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -385,9 +394,11 @@
 				854A7DCD266F88C500BC38DE /* DetailExercise.swift in Sources */,
 				850A080C2673155300D06D89 /* BenefitTableViewCell.swift in Sources */,
 				9AABC536266F978D004083E9 /* BreakExerciseViewController.swift in Sources */,
+				9A6839AA267AF91E00070321 /* BodyPoseProcessor.swift in Sources */,
 				61725F67266E36640085C241 /* ListExerciseViewController.swift in Sources */,
 				8546721C2671E8B70066F121 /* CustomAlertInfoViewController.swift in Sources */,
 				6177DBA02677183A0075C4CB /* ModuleModelDummyData.swift in Sources */,
+				9A73FC14267A4AF900B44CC7 /* UIView+Ext.swift in Sources */,
 				188332552669D3CD0092A504 /* AppDelegate.swift in Sources */,
 				614ACB462670C12D00A91190 /* DoingExerciseViewController.swift in Sources */,
 				9AABC53D2671AB9A004083E9 /* UIImageView+Ext.swift in Sources */,
@@ -397,6 +408,7 @@
 				9AABC528266F5EF1004083E9 /* ModuleModel.swift in Sources */,
 				184090E72670EF6E0022AAEA /* ModuleCardCell.swift in Sources */,
 				184090F82673673A0022AAEA /* ExerciseTableViewCell.swift in Sources */,
+				9A6839A8267AF67700070321 /* CGPoint+Ext.swift in Sources */,
 				61725F63266E35120085C241 /* ModuleExerciseViewController.swift in Sources */,
 				614ACB3A2670C01500A91190 /* DetailExerciseViewController.swift in Sources */,
 				614ACB3B2670C01500A91190 /* HowToTableViewCell.swift in Sources */,
@@ -540,7 +552,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 33Z87RYAC2;
+				DEVELOPMENT_TEAM = H443SZWX2N;
 				INFOPLIST_FILE = MoEx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

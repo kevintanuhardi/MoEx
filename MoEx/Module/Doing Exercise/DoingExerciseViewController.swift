@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Vision
 
 class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var previewView: UIView!
@@ -19,9 +20,9 @@ class DoingExerciseViewController: UIViewController {
     let captureSession = AVCaptureSession()
     private let videoOutput = AVCaptureVideoDataOutput()
     let queue = DispatchQueue(label: "camera.queue")
-    
+    private var bodyProcessor = BodyPoseProcessor()
     var isPausedVideo: Bool = false
-    
+    private var bodyPoseRequest = VNDetectHumanBodyPoseRequest()
     var module: ModuleModel?
     var exercise: Exercise?
     var index: Int?
@@ -243,11 +244,67 @@ extension DoingExerciseViewController {
             }
         }
     }
+    func processPoint(rightShoulder: CGPoint?, rightWrist: CGPoint?, rightElbow: CGPoint?, rightHip: CGPoint?, rightAnkle: CGPoint?, rightKnee: CGPoint?){
+        guard let rightShoulder = rightShoulder, let rightWrist = rightWrist, let rightElbow = rightElbow, let rightHip = rightHip, let rightAnkle = rightAnkle, let rightKnee = rightKnee else {
+            return
+        }
+        
+//        let previewLayer = previewView.previewLayer
+//        let shoulderPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightShoulder)
+//        let wristPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightWrist)
+//        let elbowPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightElbow)
+//        let hipPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightHip)
+//        let anklePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightAnkle)
+//        let kneePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightKnee)
+
+//        bodyProcessor.processPoints((elbowPointConverted, wristPointConverted, shoulderPointConverted))
+    }
 }
 
 extension DoingExerciseViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // Throw the logic to handle output video frame to our posenet model
-        
+        var rightShoulder: CGPoint?
+        var rightWrist: CGPoint?
+        var rightElbow: CGPoint?
+        var rightHip: CGPoint?
+        var rightAnkle: CGPoint?
+        var rightKnee: CGPoint?
+
+        defer{
+            DispatchQueue.main.async {
+                self.processPoint(rightShoulder: rightShoulder, rightWrist: rightWrist, rightElbow: rightElbow, rightHip: rightHip, rightAnkle: rightAnkle, rightKnee: rightKnee)
+            }
+        }
+
+        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
+
+        do {
+            try handler.perform([bodyPoseRequest])
+            guard let observation = bodyPoseRequest.results?.first else {return}
+
+            let shoulderPoint = try observation.recognizedPoint(.rightShoulder)
+            let wristPoint = try observation.recognizedPoint(.rightWrist)
+            let elbowPoint = try observation.recognizedPoint(.rightElbow)
+            let hipPoint = try observation.recognizedPoint(.rightHip)
+            let anklePoint = try observation.recognizedPoint(.rightAnkle)
+            let kneePoint = try observation.recognizedPoint(.rightKnee)
+         
+            guard shoulderPoint.confidence > 0.3 || wristPoint.confidence > 0.3 || elbowPoint.confidence > 0.3 || hipPoint.confidence > 0.3 || anklePoint.confidence > 0.3 || kneePoint.confidence > 0.3 else {return}
+            
+//            print("shoulderpoint",shoulderPoint)
+//            print("wristpoint",wristPoint)
+
+            rightShoulder = CGPoint(x: shoulderPoint.location.x, y: 1 - shoulderPoint.location.y)
+            rightWrist = CGPoint(x: wristPoint.location.x, y: 1 - wristPoint.location.y)
+            rightElbow = CGPoint(x: elbowPoint.location.x, y: 1 - elbowPoint.location.y)
+            rightHip = CGPoint(x: hipPoint.location.x, y: 1 - hipPoint.location.y)
+            rightAnkle = CGPoint(x: anklePoint.location.x, y: 1 - anklePoint.location.y)
+            rightKnee = CGPoint(x: kneePoint.location.x, y: 1 - kneePoint.location.y)
+           
+
+        } catch {
+            captureSession.stopRunning()
+        }
     }
 }
