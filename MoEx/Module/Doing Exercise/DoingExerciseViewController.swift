@@ -18,7 +18,7 @@ class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var nextView: UIView!
     
     private var cameraView: CameraView { previewView as! CameraView }
-    
+
     private var cameraFeedSession: AVCaptureSession?
     private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
     private var handPoseRequest = VNDetectHumanBodyPoseRequest()
@@ -254,7 +254,9 @@ extension DoingExerciseViewController {
         let anklePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightAnkle)
         let kneePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightKnee)
         
-        cameraView.showPoints([shoulderPointConverted, wristPointConverted, elbowPointConverted, hipPointConverted, anklePointConverted, kneePointConverted], color: .red)
+        cameraView.showPoints([ wristPointConverted, elbowPointConverted, shoulderPointConverted, hipPointConverted, anklePointConverted, kneePointConverted], color: .red)
+        
+        gestureProcessor.processPoints((shoulderPointConverted, wristPointConverted, elbowPointConverted))
     }
 }
 

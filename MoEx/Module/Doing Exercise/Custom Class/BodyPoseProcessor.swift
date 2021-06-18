@@ -11,20 +11,16 @@ class BodyPoseProcessor{
     
     typealias AngleAxis = (firstAxis: CGPoint, secondAxis: CGPoint, center: CGPoint)
     
-    static func calculateAngle(first: CGPoint, second: CGPoint, center: CGPoint) -> CGFloat{
-        let xDistA = center.x - second.x
-        let yDistA = center.y - second.y
-        let a = sqrt((xDistA * xDistA) + (yDistA * yDistA))
-        
-        let xDistB = first.x - second.x
-        let yDistB = first.y - second.y
-        let b = sqrt((xDistB * xDistB) + (yDistB * yDistB))
-        
-        let xDistC = center.x - first.x
-        let yDistC = center.y - first.y
-        let c = sqrt((xDistC * xDistC) + (yDistC * yDistC))
-        
-        return acos(((a*a) + (c*c) - (b*b)) / ((2*a*c)))
+    static func calculateAngle(first: CGPoint, second: CGPoint, center: CGPoint) -> Double{
+        let numerator = Double((center.y * (first.x - second.x)) + (first.y * (second.x - center.x)) + (second.y * (center.x - first.x)))
+        let denominator = Double((center.x - first.x) * (first.x - second.x) + (center.y-first.y) * (first.y-second.y))
+        let ratio = numerator / denominator
+        let angleRad = atan(ratio)
+        var angleDeg = (angleRad * 180)/Double.pi
+        if angleDeg < 0 {
+            angleDeg += 180
+        }
+        return angleDeg
         
     }
     

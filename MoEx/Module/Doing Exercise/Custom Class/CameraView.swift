@@ -44,10 +44,15 @@ class CameraView: UIView {
     
     func showPoints(_ points: [CGPoint], color: UIColor) {
         pointsPath.removeAllPoints()
+        guard var currentPoint = points.first else {return}
         for point in points {
-            pointsPath.move(to: point)
+            let newPoint = point
+            pointsPath.move(to: currentPoint)
             pointsPath.addArc(withCenter: point, radius: 5, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+            pointsPath.addLine(to: newPoint)
+            currentPoint = newPoint
         }
+        
         overlayLayer.fillColor = color.cgColor
         CATransaction.begin()
         CATransaction.setDisableActions(true)
