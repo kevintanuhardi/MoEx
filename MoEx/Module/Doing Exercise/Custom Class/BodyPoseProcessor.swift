@@ -26,7 +26,7 @@ class BodyPoseProcessor{
         let c = sqrt((xDistC * xDistC) + (yDistC * yDistC))
         
         let angleRad = acos(((a*a) + (c*c) - (b*b)) / ((2*a*c)))
-        var angleDeg = (angleRad * 180)/Double.pi
+        var angleDeg = (Double(angleRad) * 180)/Double.pi
         if angleDeg < 0 {
             angleDeg += 180
         }
@@ -46,7 +46,6 @@ class BodyPoseProcessor{
 }
 
 // MARK: - CGPoint helpers
-
 extension CGPoint {
     
     static func midPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {

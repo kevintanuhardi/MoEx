@@ -66,7 +66,7 @@ class DoingExerciseViewController: UIViewController {
     }
     
     func setupAVSession() throws {
-        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
+        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
             throw AppError.captureSessionSetup(reason: "Could not find a front facing camera.")
         }
         
@@ -241,8 +241,8 @@ class DoingExerciseViewController: UIViewController {
 
 extension DoingExerciseViewController {
     func processPoint(rightShoulder: CGPoint?, rightWrist: CGPoint?, rightElbow: CGPoint?, rightHip: CGPoint?, rightAnkle: CGPoint?, rightKnee: CGPoint?){
-        guard let rightShoulder = rightShoulder, let rightWrist = rightWrist, let rightElbow = rightElbow, let rightHip = rightHip, let rightAnkle = rightAnkle, let rightKnee = rightKnee else {
-            cameraView.showPoints([], color: .clear)
+        guard let rightShoulder = rightShoulder, let rightWrist = rightWrist, let rightElbow = rightElbow, let rightHip = rightHip, let rightAnkle = rightAnkle, let rightKnee = rightKnee, let exercise = exercise else {
+            cameraView.removeAllPath()
             return
         }
         
@@ -254,13 +254,20 @@ extension DoingExerciseViewController {
         let anklePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightAnkle)
         let kneePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightKnee)
         
-        //input according to usecase
-        // uncomment the other converted point to innclude those to CameraView
-        cameraView.showPoints([ wristPointConverted, elbowPointConverted, shoulderPointConverted
-//                                , hipPointConverted, anklePointConverted, kneePointConverted
-                              ], color: .red)
-        //calcuate elbow angle
-        let elbowAngle = gestureProcessor.processPoints((shoulderPointConverted, wristPointConverted, elbowPointConverted))
+        switch exercise.title {
+        case "Push Up":
+            if previewView.frame.contains(wristPointConverted) && previewView.frame.contains(shoulderPointConverted) && previewView.frame.contains(elbowPointConverted) {
+                cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], color: .red)
+                let _ = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
+            }
+        case "Squats":
+            if previewView.frame.contains(hipPointConverted) && previewView.frame.contains(kneePointConverted) && previewView.frame.contains(anklePointConverted) {
+                cameraView.showPoints([hipPointConverted, kneePointConverted, anklePointConverted], color: .blue)
+                let _ = gestureProcessor.processPoints((hipPointConverted, kneePointConverted, anklePointConverted))
+            }
+        default:
+            print("dont check motion case")
+        }
     }
 }
 

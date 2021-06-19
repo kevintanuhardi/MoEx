@@ -46,11 +46,16 @@ class CameraView: UIView {
         pointsPath.removeAllPoints()
         guard var currentPoint = points.first else {return}
         for point in points {
-            let newPoint = point
-            pointsPath.move(to: currentPoint)
-            pointsPath.addArc(withCenter: newPoint, radius: 5, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
-            pointsPath.addLine(to: newPoint)
-            currentPoint = newPoint
+            if overlayLayer.contains(point) {
+                let newPoint = point
+                pointsPath.move(to: currentPoint)
+                pointsPath.addArc(withCenter: newPoint, radius: 5, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+                pointsPath.addLine(to: newPoint)
+                currentPoint = newPoint
+            } else {
+                removeAllPath()
+                return
+            }
         }
         
         overlayLayer.fillColor = color.cgColor
@@ -58,5 +63,9 @@ class CameraView: UIView {
         CATransaction.setDisableActions(true)
         overlayLayer.path = pointsPath.cgPath
         CATransaction.commit()
+    }
+    
+    func removeAllPath() {
+        overlayLayer.path = nil
     }
 }
