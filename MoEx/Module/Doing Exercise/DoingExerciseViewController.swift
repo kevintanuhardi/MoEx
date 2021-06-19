@@ -66,7 +66,7 @@ class DoingExerciseViewController: UIViewController {
     }
     
     func setupAVSession() throws {
-        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
+        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
             throw AppError.captureSessionSetup(reason: "Could not find a front facing camera.")
         }
         
@@ -254,9 +254,13 @@ extension DoingExerciseViewController {
         let anklePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightAnkle)
         let kneePointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: rightKnee)
         
-        cameraView.showPoints([ wristPointConverted, elbowPointConverted, shoulderPointConverted, hipPointConverted, anklePointConverted, kneePointConverted], color: .red)
-        
-        gestureProcessor.processPoints((shoulderPointConverted, wristPointConverted, elbowPointConverted))
+        //input according to usecase
+        // uncomment the other converted point to innclude those to CameraView
+        cameraView.showPoints([ wristPointConverted, elbowPointConverted, shoulderPointConverted
+//                                , hipPointConverted, anklePointConverted, kneePointConverted
+                              ], color: .red)
+        //calcuate elbow angle
+        let elbowAngle = gestureProcessor.processPoints((shoulderPointConverted, wristPointConverted, elbowPointConverted))
     }
 }
 

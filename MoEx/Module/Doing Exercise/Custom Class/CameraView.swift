@@ -48,7 +48,7 @@ class CameraView: UIView {
         for point in points {
             let newPoint = point
             pointsPath.move(to: currentPoint)
-            pointsPath.addArc(withCenter: point, radius: 5, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+            pointsPath.addArc(withCenter: newPoint, radius: 5, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
             pointsPath.addLine(to: newPoint)
             currentPoint = newPoint
         }
