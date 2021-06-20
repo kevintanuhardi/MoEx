@@ -42,9 +42,13 @@ class CameraView: UIView {
         previewLayer.addSublayer(overlayLayer)
     }
     
-    func showPoints(_ points: [CGPoint], color: UIColor) {
+    func showPoints(_ points: [CGPoint], maidPoints: CGPoint = .zero, color: UIColor) {
         pointsPath.removeAllPoints()
         guard var currentPoint = points.first else {return}
+        
+        pointsPath.move(to: maidPoints)
+        pointsPath.addArc(withCenter: maidPoints, radius: 5, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+        
         for point in points {
             if overlayLayer.contains(point) {
                 let newPoint = point

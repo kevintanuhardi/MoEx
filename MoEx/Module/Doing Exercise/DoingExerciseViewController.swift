@@ -9,6 +9,13 @@ import UIKit
 import AVFoundation
 import Vision
 
+enum StatusWorkout {
+    case notInPosition
+    case inPosition
+    case halfWay
+    case fullWay
+}
+
 class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var countOfExerciseLabel: UILabel!
@@ -31,7 +38,12 @@ class DoingExerciseViewController: UIViewController {
     var exercise: Exercise?
     var index: Int?
     
-    var reps: Int = 0
+    var reps: Int = 0 {
+        didSet {
+            guard let exercise = exercise else { return }
+            repExerciseLabel.text = "\(reps)/\(exercise.reps)"
+        }
+    }
     
     private var counter = 3 {
         didSet {
@@ -40,6 +52,8 @@ class DoingExerciseViewController: UIViewController {
     }
     
     var timer: Timer?
+    
+    var statusWorkout: StatusWorkout = .notInPosition
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,6 +220,29 @@ class DoingExerciseViewController: UIViewController {
         }
     }
     
+    func calculateWorkout(angle: Double) {
+        guard let exercise = exercise, let tiltAngle = exercise.tiltAngle, let startingAngle = exercise.startingAngle else { return }
+        switch statusWorkout {
+        case .inPosition:
+            if angle > tiltAngle {
+                statusWorkout = .halfWay
+            }
+        case .halfWay:
+            if angle < startingAngle {
+                statusWorkout = .fullWay
+            }
+        case .fullWay:
+            updateLabel()
+            statusWorkout = .inPosition
+        case .notInPosition:
+            statusWorkout = .inPosition
+        }
+    }
+    
+    func updateLabel() {
+        reps += 1
+    }
+    
     @objc func soundPressed() {
     
     }
@@ -256,14 +293,22 @@ extension DoingExerciseViewController {
         
         switch exercise.title {
         case "Push Up":
-            if previewView.frame.contains(wristPointConverted) && previewView.frame.contains(shoulderPointConverted) && previewView.frame.contains(elbowPointConverted) {
-                cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], color: .red)
-                let _ = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
+            if previewView.frame.contains(wristPointConverted) && previewView.frame.contains(shoulderPointConverted) && previewView.frame.contains(elbowPointConverted) && previewView.frame.contains(hipPointConverted) {
+                if statusWorkout == .notInPosition {
+                    statusWorkout = .inPosition
+                }
+                cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], maidPoints: hipPointConverted, color: .red)
+                let angle = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
+                calculateWorkout(angle: angle)
+            } else {
+                cameraView.removeAllPath()
             }
         case "Squats":
             if previewView.frame.contains(hipPointConverted) && previewView.frame.contains(kneePointConverted) && previewView.frame.contains(anklePointConverted) {
-                cameraView.showPoints([hipPointConverted, kneePointConverted, anklePointConverted], color: .blue)
+                cameraView.showPoints([hipPointConverted, kneePointConverted, anklePointConverted], color: .green)
                 let _ = gestureProcessor.processPoints((hipPointConverted, kneePointConverted, anklePointConverted))
+            } else {
+                cameraView.removeAllPath()
             }
         default:
             print("dont check motion case")
