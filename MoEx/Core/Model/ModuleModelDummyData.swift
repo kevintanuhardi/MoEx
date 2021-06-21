@@ -41,7 +41,7 @@ struct Modules {
                 HowTo(description: "Lower your body until your thighs are parallel to the floor. "),
                 HowTo(description: "Pause, then return to the starting position."),
                 HowTo(description: "Repeat.")
-            ], tiltAngle: nil, startingAngle: nil),
+            ], tiltAngle: 55, startingAngle: 8),
             Exercise(
                 title: "Planks",
                 thumb: UIImage(named: "plank")!,

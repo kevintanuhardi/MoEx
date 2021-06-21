@@ -230,11 +230,11 @@ class DoingExerciseViewController: UIViewController {
         }
     }
     
-    func calculateWorkout(angle: Double) {
-        guard let exercise = exercise, let tiltAngle = exercise.tiltAngle, let startingAngle = exercise.startingAngle else { return }
+    func calculateWorkout(angle: Double, angle2: Double?) {
+        guard let exercise = exercise, let tiltAngle = exercise.tiltAngle, let startingAngle = exercise.startingAngle, let angle2 = angle2 else { return }
         switch statusWorkout {
         case .inPosition:
-            if angle > tiltAngle {
+            if angle > tiltAngle || angle2 > tiltAngle {
                 statusWorkout = .halfWay
             }
         case .halfWay:
@@ -252,6 +252,12 @@ class DoingExerciseViewController: UIViewController {
     
     func updateLabel() {
         reps += 1
+        guard let exercise = exercise else {
+            return
+        }
+        if reps == exercise.reps {
+            navigateToBreakExercise()
+        }
     }
     
     @objc func soundPressed() {
@@ -306,15 +312,17 @@ extension DoingExerciseViewController {
         case "Push Up":
             if previewView.frame.contains(wristPointConverted) && previewView.frame.contains(shoulderPointConverted) && previewView.frame.contains(elbowPointConverted) && previewView.frame.contains(hipPointConverted) && previewView.frame.contains(anklePointConverted) {
                 let positionAngle = gestureProcessor.processPoints((shoulderPointConverted, kneePointConverted, hipPointConverted))
-                print(positionAngle)
+                if positionAngle < 160 {
+                    setFeedbackTextToSpeech(text: "Turunkan sedikit posisi pinggul Anda")
+                }
                 if positionAngle >= 160 && positionAngle <= 180 {
                     if statusWorkout == .notInPosition {
                         statusWorkout = .inPosition
-                        setFeedbackTextToSpeech(text: "Kamera berhasil mendeteksi badan anda")
+                        setFeedbackTextToSpeech(text: "Posisi awal anda sudah benar")
                     }
                     cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], maidPoints: hipPointConverted, color: .red)
-                    let angle = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
-                    calculateWorkout(angle: angle)
+                    let angle = gestureProcessor.processPoints((wristPointConverted, shoulderPointConverted, elbowPointConverted))
+                    calculateWorkout(angle: angle,angle2: nil)
                 } else {
                     cameraView.removeAllPath()
                 }
@@ -324,21 +332,23 @@ extension DoingExerciseViewController {
                 cameraView.showPoints([hipPointConverted, kneePointConverted, anklePointConverted], color: .green)
                 let hipAngle = gestureProcessor.processPoints((shoulderPointConverted, kneePointConverted, hipPointConverted))
                 let kneeAngle = gestureProcessor.processPoints((hipPointConverted, anklePointConverted, kneePointConverted))
-                let isHipAngleRight = hipAngle >= 160 && hipAngle <= 180
-                let isKneeAngleRight = kneeAngle >= 160 && kneeAngle <= 180
+                let isHipStarter = hipAngle >= 160 && hipAngle <= 180
+                let isKneeStarter = kneeAngle >= 160 && kneeAngle <= 180
                 
-                if  isHipAngleRight && isKneeAngleRight {
+                
+                if  isHipStarter && isKneeStarter {
                     if statusWorkout == .notInPosition {
                         statusWorkout = .inPosition
-                        setFeedbackTextToSpeech(text: "Kamera berhasil mendeteksi badan anda")
+                        setFeedbackTextToSpeech(text: "Posisi awal anda sudah benar")
                     }
                     cameraView.showPoints([kneePointConverted, hipPointConverted, anklePointConverted], maidPoints: shoulderPointConverted, color: .green)
-                    let angle = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
-                    calculateWorkout(angle: angle)
+                    let angle = gestureProcessor.processPoints((hipPointConverted, anklePointConverted, kneePointConverted))
+                    let angle2 = gestureProcessor.processPoints((shoulderPointConverted, kneePointConverted, hipPointConverted))
+                    calculateWorkout(angle: angle, angle2: angle2)
                 } else {
+                    setFeedbackTextToSpeech(text: "Harap berdiri dengan posisi yang benar")
                     cameraView.removeAllPath()
                 }
-                
             }
         default:
             print("dont check motion case")
