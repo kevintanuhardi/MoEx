@@ -20,13 +20,13 @@ struct Modules {
                     Benefit(description: "They can double as cardio"),
                     Benefit(description: "Supports strong bones"),
                     Benefit(description: "Improves posture")
-            ], equipment: nil, reps: 0, illustrations: [UIImage(named: "pushup-illustration01")!, UIImage(named: "pushup-illustration02")!], howTo: [
+            ], equipment: nil, reps: 10, illustrations: [UIImage(named: "pushup-illustration01")!, UIImage(named: "pushup-illustration02")!], howTo: [
                 HowTo(description: "Get down on all fours, placing your hands slightly wider than your shoulders."),
                 HowTo(description: "Straighten your arms and legs."),
                 HowTo(description: "Lower your body until your chest nearly touches the floor. "),
                 HowTo(description: "Pause, then push yourself back up.  "),
                 HowTo(description: "Repeat. ")
-        ]),
+        ], tiltAngle: 30, startingAngle: 8),
             Exercise(
                 title: "Squats",
                 thumb: UIImage(named: "squat")!,
@@ -41,7 +41,7 @@ struct Modules {
                 HowTo(description: "Lower your body until your thighs are parallel to the floor. "),
                 HowTo(description: "Pause, then return to the starting position."),
                 HowTo(description: "Repeat.")
-            ]),
+            ], tiltAngle: 55, startingAngle: 8),
             Exercise(
                 title: "Planks",
                 thumb: UIImage(named: "plank")!,
@@ -55,7 +55,7 @@ struct Modules {
                 HowTo(description: "Lay down on your stomach."),
                 HowTo(description: "Lift your body up onto your elbows and toes. Try to maintain a straight spine, and do not let your hips or pelvis drop."),
                 HowTo(description: "Hold for as long as you can. Williams says aim first for 30 seconds and then keep adding time time until you can hold for a minute.")
-            ]),
+            ], tiltAngle: nil, startingAngle: nil),
             Exercise(
                 title: "Lunges",
                 thumb: UIImage(named: "lunges")!,
@@ -70,7 +70,7 @@ struct Modules {
                 HowTo(description: "Bend your back knee, and lower your body until both knees form 90-degree angles."),
                 HowTo(description: "Push into the ground with your forward heel and back toes as you lift your body back to the starting position."),
                 HowTo(description: "Repeat 3 sets of 8 to 10 reps on each side")
-            ]),
+            ], tiltAngle: nil, startingAngle: nil),
             Exercise(
                 title: "Mountain Climbers",
                 thumb: UIImage(named: "mountain-climber")!,
@@ -85,7 +85,7 @@ struct Modules {
                 HowTo(description: "Pull your waist in, drag shoulder blades down the back, and engage the core."),
                 HowTo(description: "Fire up the belly by pulling one knee in, and then send it back. As soon your toe touches the floor, alternate and send the other knee toward the chest and back again. That's one rep."),
                 HowTo(description: "Keep alternating your steps and breathing for 20 seconds, or up to 1 minute.")
-            ]),
+            ], tiltAngle: nil, startingAngle: nil),
             Exercise(
                 title: "Burpee",
                 thumb: UIImage(named: "burpee")!,
@@ -107,6 +107,6 @@ struct Modules {
                     HowTo(description: "Jump your feet back so that they land just outside of your hands"),
                     HowTo(description: "Reach your arms over head and explosively jump up into the air."),
                     HowTo(description: "Land and immediately lower back into a squat for your next rep.")
-            ])
+            ], tiltAngle: nil, startingAngle: nil)
     ], time: 15, calories: 60)]
 }

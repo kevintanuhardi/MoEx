@@ -27,6 +27,8 @@ struct Exercise {
     let reps: Int
     let illustrations: [UIImage]
     let howTo: [HowTo]
+    let tiltAngle: Double?
+    let startingAngle: Double?
 }
 
 struct Benefit {

@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jI-Ag-2ds" userLabel="Preview View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jI-Ag-2ds" userLabel="Preview View" customClass="CameraView" customModule="MoEx" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="523"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
