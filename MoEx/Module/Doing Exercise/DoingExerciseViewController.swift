@@ -64,6 +64,16 @@ class DoingExerciseViewController: UIViewController {
         setupView()
         setupButtonIndex()
         setupCamera()
+        setFeedbackTextToSpeech(text: "Ambil posisi sampai kamera berhasil mendeteksi tubuh anda")
+    }
+    
+    func setFeedbackTextToSpeech(text: String) {
+        let string = text
+        let utterance = AVSpeechUtterance(string: string)
+        utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
+
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
     }
     
     func setupCamera() {
@@ -234,6 +244,7 @@ class DoingExerciseViewController: UIViewController {
         case .fullWay:
             updateLabel()
             statusWorkout = .inPosition
+            setFeedbackTextToSpeech(text: "\(exercise.title) berhasil dilakukan")
         case .notInPosition:
             statusWorkout = .inPosition
         }
@@ -241,6 +252,13 @@ class DoingExerciseViewController: UIViewController {
     
     func updateLabel() {
         reps += 1
+        guard let exercise = exercise else {
+            return
+        }
+        if reps == exercise.reps {
+            setFeedbackTextToSpeech(text: "\(exercise.title) telah selesai dilakukan")
+            navigateToBreakExercise()
+        }
     }
     
     @objc func soundPressed() {
@@ -296,6 +314,7 @@ extension DoingExerciseViewController {
             if previewView.frame.contains(wristPointConverted) && previewView.frame.contains(shoulderPointConverted) && previewView.frame.contains(elbowPointConverted) && previewView.frame.contains(hipPointConverted) {
                 if statusWorkout == .notInPosition {
                     statusWorkout = .inPosition
+                    setFeedbackTextToSpeech(text: "Kamera telah berhasil mendeteksi")
                 }
                 cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], maidPoints: hipPointConverted, color: .red)
                 let angle = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
