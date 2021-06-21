@@ -72,10 +72,14 @@ class BreakExerciseViewController: UIViewController {
                 self.timerLabel.text = "00:0\(self.breakTime)"
             }
         } else {
+            guard let moduleModel = moduleModel, let exerciseIndex = exerciseIndex else { return }
             timer.invalidate()
             breakTime = 15
-            self.timerLabel.text = "00:\(self.breakTime)"
-            self.navigationController?.pushViewController(PauseExerciseViewController(), animated: true)
+            let vc = DetailExerciseViewController()
+            vc.exercise = moduleModel.exercise[exerciseIndex]
+            vc.module = moduleModel
+            vc.index = exerciseIndex
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     /*
