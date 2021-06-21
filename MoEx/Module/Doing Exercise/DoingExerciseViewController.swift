@@ -64,6 +64,7 @@ class DoingExerciseViewController: UIViewController {
         setupView()
         setupButtonIndex()
         setupCamera()
+        setFeedbackTextToSpeech(text: "Ambil posisi sampai kamera berhasil mendeteksi tubuh anda")
     }
     
     func setupCamera() {
@@ -152,6 +153,15 @@ class DoingExerciseViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(runInterval), userInfo: nil, repeats: true)
     }
     
+    func setFeedbackTextToSpeech(text: String) {
+        let string = text
+        let utterance = AVSpeechUtterance(string: string)
+        utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
+
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
+    }
+    
     func changeNumber() {
         if let layer = self.previewView.layer.sublayers?.last {
             layer.removeFromSuperlayer()
@@ -234,6 +244,7 @@ class DoingExerciseViewController: UIViewController {
         case .fullWay:
             updateLabel()
             statusWorkout = .inPosition
+            setFeedbackTextToSpeech(text: "\(exercise.title) berhasil dilakukan")
         case .notInPosition:
             statusWorkout = .inPosition
         }
@@ -294,14 +305,19 @@ extension DoingExerciseViewController {
         switch exercise.title {
         case "Push Up":
             if previewView.frame.contains(wristPointConverted) && previewView.frame.contains(shoulderPointConverted) && previewView.frame.contains(elbowPointConverted) && previewView.frame.contains(hipPointConverted) {
-                if statusWorkout == .notInPosition {
-                    statusWorkout = .inPosition
+                let positionAngle = gestureProcessor.processPoints((hipPointConverted, anklePointConverted, kneePointConverted))
+                print(positionAngle)
+                if positionAngle > 160 && positionAngle < 180 {
+                    if statusWorkout == .notInPosition {
+                        statusWorkout = .inPosition
+                        setFeedbackTextToSpeech(text: "Kamera berhasil mendeteksi badan anda")
+                    }
+                    cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], maidPoints: hipPointConverted, color: .red)
+                    let angle = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
+                    calculateWorkout(angle: angle)
+                } else {
+                    cameraView.removeAllPath()
                 }
-                cameraView.showPoints([wristPointConverted, elbowPointConverted, shoulderPointConverted], maidPoints: hipPointConverted, color: .red)
-                let angle = gestureProcessor.processPoints((wristPointConverted, elbowPointConverted, shoulderPointConverted))
-                calculateWorkout(angle: angle)
-            } else {
-                cameraView.removeAllPath()
             }
         case "Squats":
             if previewView.frame.contains(hipPointConverted) && previewView.frame.contains(kneePointConverted) && previewView.frame.contains(anklePointConverted) {
