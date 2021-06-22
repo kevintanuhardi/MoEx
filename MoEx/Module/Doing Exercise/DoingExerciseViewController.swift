@@ -25,7 +25,7 @@ class DoingExerciseViewController: UIViewController {
     @IBOutlet weak var nextView: UIView!
     
     private var cameraView: CameraView { previewView as! CameraView }
-
+    
     private var cameraFeedSession: AVCaptureSession?
     private let videoDataOutputQueue = DispatchQueue(label: "CameraFeedDataOutput", qos: .userInteractive)
     private var handPoseRequest = VNDetectHumanBodyPoseRequest()
@@ -54,7 +54,7 @@ class DoingExerciseViewController: UIViewController {
     var timer: Timer?
     
     var statusWorkout: StatusWorkout = .notInPosition
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -71,7 +71,7 @@ class DoingExerciseViewController: UIViewController {
         let string = text
         let utterance = AVSpeechUtterance(string: string)
         utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
-
+        
         let synth = AVSpeechSynthesizer()
         synth.speak(utterance)
     }
@@ -101,7 +101,7 @@ class DoingExerciseViewController: UIViewController {
         let session = AVCaptureSession()
         session.beginConfiguration()
         session.sessionPreset = AVCaptureSession.Preset.high
-    
+        
         guard session.canAddInput(deviceInput) else {
             throw AppError.captureSessionSetup(reason: "Could not add video device input to the session")
         }
@@ -244,11 +244,8 @@ class DoingExerciseViewController: UIViewController {
         case .fullWay:
             updateLabel()
             statusWorkout = .inPosition
-            if reps < exercise.reps{
-                setFeedbackTextToSpeech(text: "\(exercise.title) berhasil dilakukan")
-            } else {
-                setFeedbackTextToSpeech(text: "\(exercise.title) telah selesai dilakukan")
-            }
+            
+            
         case .notInPosition:
             statusWorkout = .inPosition
         }
@@ -259,14 +256,21 @@ class DoingExerciseViewController: UIViewController {
         guard let exercise = exercise else {
             return
         }
-        if reps == exercise.reps {
+        if reps < exercise.reps {
             
+            setFeedbackTextToSpeech(text: "\(exercise.title) berhasil dilakukan")
+        } else {
+            
+            setFeedbackTextToSpeech(text: "\(exercise.title) telah selesai dilakukan")
+        }
+        
+        if reps == exercise.reps {
             navigateToBreakExercise()
         }
     }
     
     @objc func soundPressed() {
-    
+        
     }
     
     @objc func stopPressed() {
@@ -353,23 +357,23 @@ extension DoingExerciseViewController: AVCaptureVideoDataOutputSampleBufferDeleg
                 self.processPoint(rightShoulder: rightShoulder, rightWrist: rightWrist, rightElbow: rightElbow, rightHip: rightHip, rightAnkle: rightAnkle, rightKnee: rightKnee)
             }
         }
-
+        
         let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
         do {
             try handler.perform([handPoseRequest])
             guard let observation = handPoseRequest.results?.first else {
                 return
             }
-
+            
             let shoulderPoint = try observation.recognizedPoint(.rightShoulder)
             let wristPoint = try observation.recognizedPoint(.rightWrist)
             let elbowPoint = try observation.recognizedPoint(.rightElbow)
             let hipPoint = try observation.recognizedPoint(.rightHip)
             let anklePoint = try observation.recognizedPoint(.rightAnkle)
             let kneePoint = try observation.recognizedPoint(.rightKnee)
-    
+            
             guard shoulderPoint.confidence > 0.3 || wristPoint.confidence > 0.3 || elbowPoint.confidence > 0.3 || hipPoint.confidence > 0.3 || anklePoint.confidence > 0.3 || kneePoint.confidence > 0.3 else {return}
-    
+            
             rightShoulder = CGPoint(x: shoulderPoint.location.x, y: 1 - shoulderPoint.location.y)
             rightWrist = CGPoint(x: wristPoint.location.x, y: 1 - wristPoint.location.y)
             rightElbow = CGPoint(x: elbowPoint.location.x, y: 1 - elbowPoint.location.y)
