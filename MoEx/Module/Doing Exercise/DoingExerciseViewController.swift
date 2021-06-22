@@ -244,7 +244,11 @@ class DoingExerciseViewController: UIViewController {
         case .fullWay:
             updateLabel()
             statusWorkout = .inPosition
-            setFeedbackTextToSpeech(text: "\(exercise.title) berhasil dilakukan")
+            if reps < exercise.reps{
+                setFeedbackTextToSpeech(text: "\(exercise.title) berhasil dilakukan")
+            } else {
+                setFeedbackTextToSpeech(text: "\(exercise.title) telah selesai dilakukan")
+            }
         case .notInPosition:
             statusWorkout = .inPosition
         }
@@ -256,7 +260,7 @@ class DoingExerciseViewController: UIViewController {
             return
         }
         if reps == exercise.reps {
-            setFeedbackTextToSpeech(text: "\(exercise.title) telah selesai dilakukan")
+            
             navigateToBreakExercise()
         }
     }
